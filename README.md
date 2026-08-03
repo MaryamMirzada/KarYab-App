@@ -202,76 +202,126 @@ The application works smoothly on:
 
 
 
----
-
 # 📂 Project Structure
 
+
+```
 karyab/
 │
 ├── app/
-│ ├── page.tsx
-│ ├── about/
-│ ├── contact/
-│ ├── dashboard/
-│ ├── opportunities/
-│ ├── saved/
-│ ├── login/
-│ ├── signup/
-│ └── add-opportunity/
+│   │
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   │
+│   ├── about/
+│   │   └── page.tsx
+│   │
+│   ├── contact/
+│   │   └── page.tsx
+│   │
+│   ├── dashboard/
+│   │   └── page.tsx
+│   │
+│   ├── opportunities/
+│   │   │
+│   │   ├── page.tsx
+│   │   │
+│   │   └── [id]/
+│   │       └── page.tsx
+│   │
+│   ├── saved/
+│   │   └── page.tsx
+│   │
+│   ├── login/
+│   │   └── page.tsx
+│   │
+│   ├── signup/
+│   │   └── page.tsx
+│   │
+│   ├── add-opportunity/
+│   │   └── page.tsx
+│   │
+│   └── edit/
+│       │
+│       └── [id]/
+│           └── page.tsx
 │
-│
+
+
 ├── components/
-│ │
-│ ├── auth/
-│ │ └── ProtectedRoute.tsx
-│ │
-│ ├── dashboard/
-│ │ └── DashboardChart.tsx
-│ │
-│ ├── home/
-│ │ ├── Hero.tsx
-│ │ ├── FAQ.tsx
-│ │ └── Features.tsx
-│ │
-│ ├── navbar/
-│ │ └── Navbar.tsx
-│ │
-│ └── opportunity/
-│ ├── OpportunityCard.tsx
-│ ├── SearchFilter.tsx
-│ └── CategoryFilter.tsx
+│   │
+│   ├── auth/
+│   │   └── ProtectedRoute.tsx
+│   │
+│   ├── dashboard/
+│   │   └── DashboardChart.tsx
+│   │
+│   ├── home/
+│   │   │
+│   │   ├── Hero.tsx
+│   │   └── FAQ.tsx
+│   │
+│   ├── layout/
+│   │   └── Navbar.tsx
+│   │
+│   └── opportunity/
+│       │
+│       ├── OpportunityCard.tsx
+│       ├── SearchFilter.tsx
+│       └── CategoryFilter.tsx
 │
-│
+
+
 ├── context/
-│ ├── AuthContext.tsx
-│ └── LanguageContext.tsx
+│   │
+│   ├── AuthContext.tsx
+│   └── LanguageContext.tsx
 │
-│
+
+
 ├── data/
-│ └── opportunities.ts
+│   │
+│   └── opportunities.ts
 │
-│
+
+
 ├── lib/
-│ └── storage.ts
+│   │
+│   └── storage.ts
 │
-│
+
+
 ├── types/
-│ └── opportunity.ts
+│   │
+│   └── opportunity.ts
 │
-│
+
+
 ├── public/
-│ ├── home/
-│ ├── logo/
-│ └── screenshots/
+│   │
+│   ├── home/
+│   │   │
+│   │   ├── logo.png
+│   │   └── hero_img.png
+│   │
+│   └── screenshots/
+│       │
+│       ├── banner.png
+│       ├── home.png
+│       ├── opportunities.png
+│       ├── dashboard.png
+│       └── details.png
 │
-│
+
+
 ├── package.json
+├── tsconfig.json
+├── next.config.ts
 ├── tailwind.config.ts
-├── next.config.js
-└── README.md 
+└── README.md
 
-
-
+```
 
 ---
 
