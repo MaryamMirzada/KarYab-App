@@ -1,106 +1,126 @@
-# KaarYab Afghanistan
+# 🚀 KaarYab Afghanistan
 
-## Project Overview
+![KaarYab Banner](./screenshots/banner.png)
 
-KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted platform.
+KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted place.
 
-The platform helps users discover:
+The platform connects students, job seekers, and professionals with:
 
-- Job Opportunities
-- Scholarships
+- Jobs
 - Internships
-- Remote Work
+- Scholarships
+- Remote Work Opportunities
 - Training Programs
-- Volunteer Opportunities
 - Online Courses
+- Volunteer Opportunities
 
-KaarYab provides an easy and responsive experience for users to explore, save, and manage opportunities.
 
 ---
 
-## Project Links
+# 🌐 Live Demo & Repository
 
 | Type | Link |
 |------|------|
-| Live Website | https://kaaryab.vercel.app |
-| Repository | https://github.com/username/kaaryab |
+| Live Website | https://your-vercel-link.vercel.app |
+| Repository | https://github.com/your-username/karyab |
+
 
 ---
 
-## Screenshots
+# 📸 Screenshots
 
-### Home Page
+## Home Page
 
-![Home Page](./public/screenshots/home.png)
+![Home](./screenshots/home.png)
 
-### Opportunities Page
 
-![Opportunities Page](./public/screenshots/opportunities.png)
+## Opportunities Page
 
-### Dashboard
+![Opportunities](./screenshots/opportunities.png)
 
-![Dashboard](./public/screenshots/dashboard.png)
 
-### Contact Page
+## Dashboard
 
-![Contact Page](./public/screenshots/contact.png)
+![Dashboard](./screenshots/dashboard.png)
 
----
 
-## Problem
+## Opportunity Details
 
-Finding reliable opportunities such as jobs, scholarships, internships, and training programs can be difficult because information is distributed across different platforms.
+![Details](./screenshots/details.png)
 
-Many students and young professionals need a simple platform where they can quickly discover suitable opportunities.
 
----
+## Authentication
 
-## Solution
+![Login](./screenshots/login.png)
 
-KaarYab provides a centralized platform where users can:
 
-- Discover different opportunities
-- Search and filter opportunities
-- Save useful opportunities
-- View detailed information
-- Manage submitted opportunities
 
 ---
 
-## Target Users
+# 🎯 Problem This Project Solves
+
+Many young people struggle to find reliable information about career and educational opportunities.
+
+KaarYab solves this problem by providing:
+
+- A centralized platform for discovering opportunities.
+- Easy access to jobs and scholarships.
+- A simple system for organizations to share opportunities.
+- Better career growth opportunities for Afghan youth.
+- A clean and user-friendly experience.
+
+
+
+---
+
+# 👥 Target Users
+
+KaarYab is built for:
 
 ### Students
-
-Students who are searching for:
-
-- Scholarships
-- Training programs
-- Learning opportunities
-- Career development resources
-
+- Finding scholarships
+- Discovering internships
+- Learning new skills
 
 ### Job Seekers
-
-Users looking for:
-
-- Job opportunities
-- Remote work
-- Professional growth
-
+- Searching for employment opportunities
+- Finding remote jobs
+- Improving career growth
 
 ### Organizations
+- Publishing opportunities
+- Reaching talented young people
 
-Organizations that want to:
+### Professionals
+- Discovering training and development programs
 
-- Publish opportunities
-- Connect with talented users
-- Share programs and jobs
+
 
 ---
 
-## Features
+# ✨ Features
 
-### Authentication
+## 🔍 Opportunity Discovery
+
+Users can explore different opportunity categories:
+
+- Jobs
+- Internships
+- Scholarships
+- Remote Work
+- Training
+- Volunteer Programs
+- Online Courses
+
+
+## 🔎 Search & Filtering
+
+- Search opportunities by title and organization.
+- Filter opportunities by category.
+- Quickly find relevant opportunities.
+
+
+## 🔐 Authentication System
 
 - User registration
 - User login
@@ -108,53 +128,188 @@ Organizations that want to:
 - User session management
 
 
-### Opportunity System
+## 📊 Dashboard
 
-- Browse opportunities
-- Search opportunities
-- Filter by category
-- View details
-- Save opportunities
-
-
-### Opportunity Management
-
-- Add opportunities
-- Edit opportunities
-- Delete opportunities
-
-
-### Dashboard
+Dashboard provides:
 
 - Opportunity statistics
-- Category charts
+- Category overview
 - Recent opportunities
-- Expiring opportunities
+- Platform activity tracking
 
 
-### Responsive Design
+## ❤️ Saved Opportunities
 
-Optimized for:
+Users can:
+
+- Save interesting opportunities.
+- Access saved opportunities later.
+
+
+## 📝 Opportunity Management
+
+Authenticated users can:
+
+- Add new opportunities.
+- Edit opportunities.
+- Delete opportunities.
+
+
+## 🌍 Responsive Design
+
+The application works smoothly on:
 
 - Desktop
 - Tablet
-- Mobile
+- Mobile devices
+
+
 
 ---
 
-## Technologies Used
+# 🛠 Technologies Used
 
-| Technology | Usage |
-|------------|-------|
-| Next.js | Application framework and routing |
+
+## Frontend
+
+| Technology | Purpose |
+|---|---|
+| Next.js | React framework for building the application |
 | React | UI development |
 | TypeScript | Type-safe development |
-| Tailwind CSS | Responsive styling |
-| Recharts | Data visualization |
-| Lucide React | Icon system |
-| React Icons | Additional icons |
+| Tailwind CSS | Styling and responsive design |
+| React Hooks | State management |
+| Next Image | Image optimization |
+
+
+## UI & Components
+
+| Library | Purpose |
+|---|---|
+| Lucide React | Modern icons |
+| React Icons | Additional icon library |
+| Recharts | Dashboard charts |
 | React Theme | Theme management |
+
+
+## Validation & Data
+
+| Technology | Purpose |
+|---|---|
+| React Hook Form | Form handling |
+| Zod | Data validation |
+| LocalStorage | Local data persistence |
+
+
 
 ---
 
-## Project Structure
+# 📂 Project Structure
+
+karyab/
+│
+├── app/
+│ ├── page.tsx
+│ ├── about/
+│ ├── contact/
+│ ├── dashboard/
+│ ├── opportunities/
+│ ├── saved/
+│ ├── login/
+│ ├── signup/
+│ └── add-opportunity/
+│
+│
+├── components/
+│ │
+│ ├── auth/
+│ │ └── ProtectedRoute.tsx
+│ │
+│ ├── dashboard/
+│ │ └── DashboardChart.tsx
+│ │
+│ ├── home/
+│ │ ├── Hero.tsx
+│ │ ├── FAQ.tsx
+│ │ └── Features.tsx
+│ │
+│ ├── navbar/
+│ │ └── Navbar.tsx
+│ │
+│ └── opportunity/
+│ ├── OpportunityCard.tsx
+│ ├── SearchFilter.tsx
+│ └── CategoryFilter.tsx
+│
+│
+├── context/
+│ ├── AuthContext.tsx
+│ └── LanguageContext.tsx
+│
+│
+├── data/
+│ └── opportunities.ts
+│
+│
+├── lib/
+│ └── storage.ts
+│
+│
+├── types/
+│ └── opportunity.ts
+│
+│
+├── public/
+│ ├── home/
+│ ├── logo/
+│ └── screenshots/
+│
+│
+├── package.json
+├── tailwind.config.ts
+├── next.config.js
+└── README.md 
+
+
+
+
+---
+
+---
+
+# 📄 License
+
+This project is created for educational and development purposes.
+
+You are allowed to:
+
+- Study the source code.
+- Learn from the project structure.
+- Modify the project for personal learning.
+- Improve and extend the application.
+
+
+Commercial use or redistribution should follow the original project terms.
+
+
+
+---
+
+# 🤝 Contribution Guide
+
+Contributions are welcome.
+
+If you want to improve KaarYab:
+
+### 1. Fork the repository
+
+Create your own copy of the project repository.
+
+
+### 2. Create a new branch
+
+```bash
+git checkout -b feature/new-featuregit add .
+git commit -m "Add new feature"
+git push origin feature/new-feature
+git clone https://github.com/your-username/karyab.git
