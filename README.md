@@ -359,32 +359,79 @@ Commercial use or redistribution should follow the original project terms.
 
 ---
 
+---
+
 # 🤝 Contribution Guide
 
 Contributions are welcome.
 
-If you want to improve KaarYab:
+If you want to improve KaarYab, fix bugs, or add new features, you can follow these steps:
 
-### 1. Fork the repository
 
-Create your own copy of the project repository.
+## 1. Fork the Repository
 
+Create your own copy of the KaarYab repository on GitHub.
+
+
+## 2. Clone the Repository
+
+Download your forked repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/karyab.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd karyab
+```
+
+
+## 3. Create a New Branch
+
+Create a separate branch for your changes:
+
+```bash
+git checkout -b feature/new-feature
+```
+
+
+## 4. Make Your Changes
+
+Improve the project, fix issues, or add new features.
+
+
+## 5. Commit Your Changes
+
+Save your changes with a clear commit message:
+
+```bash
+git add .
+
+git commit -m "Add new feature"
+```
+
+
+## 6. Push Your Changes
+
+Upload your branch to your GitHub repository:
+
+```bash
+git push origin feature/new-feature
+```
+
+
+## 7. Create a Pull Request
+
+Open a Pull Request and explain the changes you made.
+
+After review, your contribution can be merged into the main project.
 
 ---
 
-# 🤝 Contribution
+Thank you for helping improve KaarYab and making the platform better for users.
 
-Contributions are welcome.
-
-If you want to improve KaarYab or add new features, you can follow these steps:
-
-### 1. Fork the Repository
-
-Create your own copy of the KaarYab repository.
-
-### 2. Clone the Repository
-
-```bash
 ---
 
 # 📬 Contact
@@ -395,16 +442,18 @@ For questions, suggestions, collaboration, or feedback, feel free to contact me.
 
 **Maryam Mirzada**
 
+Frontend Developer focused on building modern, responsive, and user-friendly web applications.
+
 ---
 
 ## 🔗 Social Links
 
 **LinkedIn:**  
-[Your LinkedIn Profile](YOUR_LINKEDIN_LINK)
+[Maryam Mirzada]([YOUR_LINKEDIN_LINK](https://www.linkedin.com/in/maryam-mirzada-86b945351/))
 
 
 **Email:**  
-YOUR_EMAIL@example.com
+[YOUR_EMAIL@example.com](marimmirzada@gmail.com)
 
 ---
 
@@ -412,7 +461,7 @@ YOUR_EMAIL@example.com
 
 If you find KaarYab useful, consider giving this project a ⭐ on GitHub.
 
-Your support helps improve the project and motivates future development.
+Your support helps improve the project, encourages future development, and motivates continuous learning and innovation.
 
 ---
 
@@ -421,6 +470,12 @@ Your support helps improve the project and motivates future development.
 Created and developed by:
 
 **Maryam Mirzada**
+
+---
+
+## About the Developer
+
+Passionate about creating clean, modern, and scalable web applications with a focus on great user experiences and responsive design.
 
 ---
 
