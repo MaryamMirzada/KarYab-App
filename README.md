@@ -449,10 +449,10 @@ Frontend Developer focused on building modern, responsive, and user-friendly web
 ## 🔗 Social Links
 
 **LinkedIn:**  
-[https://www.linkedin.com/in/maryam-mirzada-86b945351/]
+https://www.linkedin.com/in/maryam-mirzada-86b945351/
 
 **Email:**  
-[marimmirzada@gmail.com]
+marimmirzada@gmail.com
 
 ---
 
