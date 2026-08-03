@@ -1,6 +1,4 @@
-# 🚀 KaarYab Afghanistan
-
-![Home Page](./screenshot/home.png)
+#  KaarYab Afghanistan
 
 KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted place.
 
@@ -21,8 +19,8 @@ The platform connects students, job seekers, and professionals with:
 
 | Type | Link |
 |------|------|
-| Live Website | https://your-vercel-link.vercel.app |
-| Repository | https://github.com/your-username/karyab |
+| Live Website | [https://your-vercel-link.vercel.app](https://kar-yab-app.vercel.app/) |
+| Repository | [https://github.com/your-username/karyab](https://github.com/MaryamMirzada/KarYab-App) |
 
 
 ---
@@ -372,6 +370,44 @@ If you want to improve KaarYab:
 Create your own copy of the project repository.
 
 
+---
+
+# 🤝 Contribution
+
+Contributions are welcome.
+
+If you want to improve KaarYab or add new features, you can follow these steps:
+
+### 1. Fork the Repository
+
+Create your own copy of the KaarYab repository.
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/karyab.git
+---
+
+# 🤝 Contribution
+
+Contributions are welcome.
+
+If you want to improve KaarYab or add new features, you can follow these steps:
+
+### 1. Fork the Repository
+
+Create your own copy of the KaarYab repository.
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/karyab.git
+git add .
+git commit -m "Add new feature"
+git push origin feature/new-feature
+
+
+
 ### 2. Create a new branch
 
 ```bash
@@ -379,3 +415,61 @@ git checkout -b feature/new-featuregit add .
 git commit -m "Add new feature"
 git push origin feature/new-feature
 git clone https://github.com/your-username/karyab.git
+
+
+---
+
+# 📬 Contact
+
+For questions, suggestions, collaboration, or feedback, feel free to contact me.
+
+## 👩‍💻 Developer
+
+**Maryam Mirzada**
+
+Frontend Developer passionate about building modern, responsive, and user-friendly web applications using React, Next.js, TypeScript, and modern frontend technologies.
+
+---
+
+## 🔗 Social Links
+
+**LinkedIn:**  
+[https://www.linkedin.com/in/your-linkedin-profile](https://www.linkedin.com/in/your-linkedin-profile)
+
+
+**GitHub:**  
+[https://github.com/your-github-profile](https://github.com/your-github-profile)
+
+
+**Email:**  
+your-email@example.com
+
+---
+
+# ⭐ Support
+
+If you find KaarYab useful, consider giving this project a ⭐ on GitHub.
+
+Your support helps improve the platform, encourages future development, and helps create better opportunities for users.
+
+---
+
+# 👩‍💻 Author
+
+Created and developed by:
+
+## Maryam Mirzada
+
+A frontend developer focused on creating modern web experiences with:
+
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Modern UI/UX principles
+
+---
+
+© 2026 KaarYab Afghanistan. All rights reserved.
+
+---
