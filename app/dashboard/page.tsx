@@ -398,7 +398,6 @@ gap-8
 
 
                 <DashboardChart
-                  data={chartData}
                 />
 
 
