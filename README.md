@@ -1,36 +1,365 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 KaarYab Afghanistan
 
-## Getting Started
+![KaarYab Banner](./screenshots/banner.png)
 
-First, run the development server:
+KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted place.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The platform connects students, job seekers, and professionals with:
+
+- Jobs
+- Internships
+- Scholarships
+- Remote Work Opportunities
+- Training Programs
+- Online Courses
+- Volunteer Opportunities
+
+
+---
+
+# 🌐 Live Demo & Repository
+
+| Type | Link |
+|------|------|
+| Live Website | https://your-vercel-link.vercel.app |
+| Repository | https://github.com/your-username/karyab |
+
+
+---
+
+# 📸 Screenshots
+
+## Home Page
+
+![Home](./screenshots/home.png)
+
+
+## Opportunities Page
+
+![Opportunities](./screenshots/opportunities.png)
+
+
+## Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+
+## Opportunity Details
+
+![Details](./screenshots/details.png)
+
+
+## Authentication
+
+![Login](./screenshots/login.png)
+
+
+
+---
+
+# 🎯 Problem This Project Solves
+
+Many young people struggle to find reliable information about career and educational opportunities.
+
+KaarYab solves this problem by providing:
+
+- A centralized platform for discovering opportunities.
+- Easy access to jobs and scholarships.
+- A simple system for organizations to share opportunities.
+- Better career growth opportunities for Afghan youth.
+- A clean and user-friendly experience.
+
+
+
+---
+
+# 👥 Target Users
+
+KaarYab is built for:
+
+### Students
+- Finding scholarships
+- Discovering internships
+- Learning new skills
+
+### Job Seekers
+- Searching for employment opportunities
+- Finding remote jobs
+- Improving career growth
+
+### Organizations
+- Publishing opportunities
+- Reaching talented young people
+
+### Professionals
+- Discovering training and development programs
+
+
+
+---
+
+# ✨ Features
+
+## 🔍 Opportunity Discovery
+
+Users can explore different opportunity categories:
+
+- Jobs
+- Internships
+- Scholarships
+- Remote Work
+- Training
+- Volunteer Programs
+- Online Courses
+
+
+## 🔎 Search & Filtering
+
+- Search opportunities by title and organization.
+- Filter opportunities by category.
+- Quickly find relevant opportunities.
+
+
+## 🔐 Authentication System
+
+- User registration
+- User login
+- Protected routes
+- User session management
+
+
+## 📊 Dashboard
+
+Dashboard provides:
+
+- Opportunity statistics
+- Category overview
+- Recent opportunities
+- Platform activity tracking
+
+
+## ❤️ Saved Opportunities
+
+Users can:
+
+- Save interesting opportunities.
+- Access saved opportunities later.
+
+
+## 📝 Opportunity Management
+
+Authenticated users can:
+
+- Add new opportunities.
+- Edit opportunities.
+- Delete opportunities.
+
+
+## 🌍 Responsive Design
+
+The application works smoothly on:
+
+- Desktop
+- Tablet
+- Mobile devices
+
+
+
+---
+
+# 🛠 Technologies Used
+
+
+## Frontend
+
+| Technology | Purpose |
+|---|---|
+| Next.js | React framework for building the application |
+| React | UI development |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Styling and responsive design |
+| React Hooks | State management |
+| Next Image | Image optimization |
+
+
+## UI & Components
+
+| Library | Purpose |
+|---|---|
+| Lucide React | Modern icons |
+| React Icons | Additional icon library |
+| Recharts | Dashboard charts |
+| React Theme | Theme management |
+
+
+## Validation & Data
+
+| Technology | Purpose |
+|---|---|
+| React Hook Form | Form handling |
+| Zod | Data validation |
+| LocalStorage | Local data persistence |
+
+
+
+# 📂 Project Structure
+
+
+```
+karyab/
+│
+├── app/
+│   │
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   │
+│   ├── about/
+│   │   └── page.tsx
+│   │
+│   ├── contact/
+│   │   └── page.tsx
+│   │
+│   ├── dashboard/
+│   │   └── page.tsx
+│   │
+│   ├── opportunities/
+│   │   │
+│   │   ├── page.tsx
+│   │   │
+│   │   └── [id]/
+│   │       └── page.tsx
+│   │
+│   ├── saved/
+│   │   └── page.tsx
+│   │
+│   ├── login/
+│   │   └── page.tsx
+│   │
+│   ├── signup/
+│   │   └── page.tsx
+│   │
+│   ├── add-opportunity/
+│   │   └── page.tsx
+│   │
+│   └── edit/
+│       │
+│       └── [id]/
+│           └── page.tsx
+│
+
+
+├── components/
+│   │
+│   ├── auth/
+│   │   └── ProtectedRoute.tsx
+│   │
+│   ├── dashboard/
+│   │   └── DashboardChart.tsx
+│   │
+│   ├── home/
+│   │   │
+│   │   ├── Hero.tsx
+│   │   └── FAQ.tsx
+│   │
+│   ├── layout/
+│   │   └── Navbar.tsx
+│   │
+│   └── opportunity/
+│       │
+│       ├── OpportunityCard.tsx
+│       ├── SearchFilter.tsx
+│       └── CategoryFilter.tsx
+│
+
+
+├── context/
+│   │
+│   ├── AuthContext.tsx
+│   └── LanguageContext.tsx
+│
+
+
+├── data/
+│   │
+│   └── opportunities.ts
+│
+
+
+├── lib/
+│   │
+│   └── storage.ts
+│
+
+
+├── types/
+│   │
+│   └── opportunity.ts
+│
+
+
+├── public/
+│   │
+│   ├── home/
+│   │   │
+│   │   ├── logo.png
+│   │   └── hero_img.png
+│   │
+│   └── screenshots/
+│       │
+│       ├── banner.png
+│       ├── home.png
+│       ├── opportunities.png
+│       ├── dashboard.png
+│       └── details.png
+│
+
+
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── tailwind.config.ts
+└── README.md
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 📄 License
 
-## Learn More
+This project is created for educational and development purposes.
 
-To learn more about Next.js, take a look at the following resources:
+You are allowed to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Study the source code.
+- Learn from the project structure.
+- Modify the project for personal learning.
+- Improve and extend the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Commercial use or redistribution should follow the original project terms.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+# 🤝 Contribution Guide
+
+Contributions are welcome.
+
+If you want to improve KaarYab:
+
+### 1. Fork the repository
+
+Create your own copy of the project repository.
+
+
+### 2. Create a new branch
+
+```bash
+git checkout -b feature/new-featuregit add .
+git commit -m "Add new feature"
+git push origin feature/new-feature
+git clone https://github.com/your-username/karyab.git
