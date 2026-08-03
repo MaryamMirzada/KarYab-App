@@ -463,22 +463,6 @@ If you find KaarYab useful, consider giving this project a ⭐ on GitHub.
 
 Your support helps improve the project, encourages future development, and motivates continuous learning and innovation.
 
----
-
-# 👩‍💻 Author
-
-Created and developed by:
-
-**Maryam Mirzada**
-
----
-
-## About the Developer
-
-Passionate about creating clean, modern, and scalable web applications with a focus on great user experiences and responsive design.
-
----
-
 © 2026 KaarYab Afghanistan. All rights reserved.
 
 ---
