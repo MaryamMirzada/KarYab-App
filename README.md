@@ -385,38 +385,6 @@ Create your own copy of the KaarYab repository.
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/karyab.git
----
-
-# 🤝 Contribution
-
-Contributions are welcome.
-
-If you want to improve KaarYab or add new features, you can follow these steps:
-
-### 1. Fork the Repository
-
-Create your own copy of the KaarYab repository.
-
-### 2. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/karyab.git
-git add .
-git commit -m "Add new feature"
-git push origin feature/new-feature
-
-
-
-### 2. Create a new branch
-
-```bash
-git checkout -b feature/new-featuregit add .
-git commit -m "Add new feature"
-git push origin feature/new-feature
-git clone https://github.com/your-username/karyab.git
-
-
 ---
 
 # 📬 Contact
@@ -427,22 +395,16 @@ For questions, suggestions, collaboration, or feedback, feel free to contact me.
 
 **Maryam Mirzada**
 
-Frontend Developer passionate about building modern, responsive, and user-friendly web applications using React, Next.js, TypeScript, and modern frontend technologies.
-
 ---
 
 ## 🔗 Social Links
 
 **LinkedIn:**  
-[https://www.linkedin.com/in/your-linkedin-profile](https://www.linkedin.com/in/your-linkedin-profile)
-
-
-**GitHub:**  
-[https://github.com/your-github-profile](https://github.com/your-github-profile)
+[Your LinkedIn Profile](YOUR_LINKEDIN_LINK)
 
 
 **Email:**  
-your-email@example.com
+YOUR_EMAIL@example.com
 
 ---
 
@@ -450,7 +412,7 @@ your-email@example.com
 
 If you find KaarYab useful, consider giving this project a ⭐ on GitHub.
 
-Your support helps improve the platform, encourages future development, and helps create better opportunities for users.
+Your support helps improve the project and motivates future development.
 
 ---
 
@@ -458,15 +420,7 @@ Your support helps improve the platform, encourages future development, and help
 
 Created and developed by:
 
-## Maryam Mirzada
-
-A frontend developer focused on creating modern web experiences with:
-
-- React
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Modern UI/UX principles
+**Maryam Mirzada**
 
 ---
 
