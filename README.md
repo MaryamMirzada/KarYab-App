@@ -29,35 +29,15 @@ The platform connects students, job seekers, and professionals with:
 
 # 📸 Screenshots
 
-## Home Page
 
-![Home](./screenshots/home.png)
-
-
-## Opportunities Page
-
-![Opportunities](./screenshot/opportunity.png)
-
-
-## Dashboard
-
-![Dashboard](./screenshot/dashboard.png)
-
-## contact
-
-![Dashboard](./screenshot/contact.png)
-
-
-## about
-
-![Dashboard](./screenshot/about.png)
-
-
-
-## Authentication
-
-![Login](./screenshots/login.png)
-![Details](./screenshot/signin.png)
+| Page | Screenshot |
+|------|------------|
+| Home Page | ![Home](./screenshots/home.png) |
+| Opportunities Page | ![Opportunities](./screenshots/opportunities.png) |
+| Dashboard | ![Dashboard](./screenshots/dashboard.png) |
+| Contact | ![Contact](./screenshots/contact.png) |
+| About | ![About](./screenshots/about.png) |
+| Authentication | ![Authentication](./screenshots/auth.png) |
 
 
 
