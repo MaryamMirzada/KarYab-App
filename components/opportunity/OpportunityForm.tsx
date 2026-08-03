@@ -5,184 +5,165 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { addOpportunity } from "@/lib/storage";
-import { useLanguage } from "@/context/LanguageContext";
 
 import {
   opportunitySchema,
   OpportunityFormData,
 } from "@/lib/validation";
 
+
 const text = {
-  en: {
-    heading: "Post a New Opportunity",
 
-    title: "Title",
-    organization: "Organization",
-    category: "Category",
-    location: "Location",
-    type: "Type",
-    deadline: "Deadline",
-    description: "Description",
-    requirements: "Requirements",
-    tags: "Tags",
-    applyLink: "Apply Link",
+  heading: "Post a New Opportunity",
 
-    submit: "Add Opportunity",
-    loading: "Saving...",
-    success: "✅ Opportunity Added Successfully!",
-    error: "Something went wrong. Try again.",
+  title: "Title",
+  organization: "Organization",
+  category: "Category",
+  location: "Location",
+  type: "Type",
+  deadline: "Deadline",
+  description: "Description",
+  requirements: "Requirements",
+  tags: "Tags",
+  applyLink: "Apply Link",
 
-    selectCategory: "Select Category",
-    selectType: "Select Type",
+  submit: "Add Opportunity",
+  loading: "Saving...",
 
-    categories: {
-      Job: "Job",
-      Internship: "Internship",
-      Scholarship: "Scholarship",
-      "Remote Work": "Remote Work",
-      Training: "Training",
-      Volunteer: "Volunteer",
-      "Online Course": "Online Course",
-    },
+  success:
+    "✅ Opportunity Added Successfully!",
 
-    types: {
-      Remote: "Remote",
-      "On-site": "On-site",
-      Hybrid: "Hybrid",
-    },
-
-    placeholders: {
-      title: "Frontend Developer Internship",
-      organization: "Google",
-      location: "Kabul / Remote",
-      description:
-        "Describe the opportunity...",
-      requirements:
-        "React, Next.js, Git",
-      tags:
-        "React, Next.js, Frontend",
-      applyLink:
-        "https://example.com/apply",
-    },
-  },
+  error:
+    "Something went wrong. Try again.",
 
 
-  fa: {
-    heading: "ثبت فرصت جدید",
+  selectCategory:
+    "Select Category",
 
-    title: "عنوان",
-    organization: "سازمان",
-    category: "دسته‌بندی",
-    location: "موقعیت",
-    type: "نوع",
-    deadline: "آخرین مهلت",
-    description: "توضیحات",
-    requirements: "شرایط و مهارت‌ها",
-    tags: "برچسب‌ها",
-    applyLink: "لینک درخواست",
+  selectType:
+    "Select Type",
 
-    submit: "ثبت فرصت",
-    loading: "در حال ذخیره...",
-    success: "✅ فرصت با موفقیت ثبت شد!",
-    error: "خطایی رخ داد. دوباره تلاش کنید.",
 
-    selectCategory:
-      "دسته‌بندی را انتخاب کنید",
+  categories: [
+    "Job",
+    "Internship",
+    "Scholarship",
+    "Remote Work",
+    "Training",
+    "Volunteer",
+    "Online Course",
+  ],
 
-    selectType:
-      "نوع را انتخاب کنید",
 
-    categories: {
-      Job: "وظیفه",
-      Internship: "کارآموزی",
-      Scholarship: "بورسیه",
-      "Remote Work": "دورکاری",
-      Training: "آموزش",
-      Volunteer: "داوطلبی",
-      "Online Course": "دوره آنلاین",
-    },
+  types: [
+    "Remote",
+    "On-site",
+    "Hybrid",
+  ],
 
-    types: {
-      Remote: "دورکاری",
-      "On-site": "حضوری",
-      Hybrid: "ترکیبی",
-    },
 
-    placeholders: {
-      title: "کارآموز فرانت‌اند",
-      organization: "نام سازمان",
-      location: "کابل / آنلاین",
-      description:
-        "توضیحات فرصت...",
-      requirements:
-        "React، Next.js، Git",
-      tags:
-        "React، Next.js، Frontend",
-      applyLink:
-        "https://example.com/apply",
-    },
-  },
+  placeholders: {
+
+    title:
+      "Frontend Developer Internship",
+
+    organization:
+      "Google",
+
+    location:
+      "Kabul / Remote",
+
+    description:
+      "Describe the opportunity...",
+
+
+    requirements:
+      "React, Next.js, Git",
+
+
+    tags:
+      "React, Next.js, Frontend",
+
+
+    applyLink:
+      "https://example.com/apply",
+
+  }
+
 };
+
 
 
 export default function OpportunityForm() {
 
-  const { language } = useLanguage();
 
-  const t = text[language];
+  const [success, setSuccess] = useState(false);
 
-
-  const [success,setSuccess] =
-    useState(false);
-
-  const [error,setError] =
-    useState(false);
+  const [error, setError] = useState(false);
 
 
 
   const {
+
     register,
+
     handleSubmit,
+
     reset,
-    formState:{
+
+    formState: {
       errors,
       isSubmitting,
-    },
+    }
+
   } = useForm<OpportunityFormData>({
 
     resolver:
-      zodResolver(opportunitySchema),
+      zodResolver(opportunitySchema)
 
   });
 
 
 
+
   async function onSubmit(
     data: OpportunityFormData
-  ){
+  ) {
+
 
     try {
 
+
       const newOpportunity = {
 
-        id: crypto.randomUUID(),
 
-        title:data.title,
+        id:
+          crypto.randomUUID(),
+
+
+        title:
+          data.title,
+
 
         organization:
           data.organization,
 
+
         category:
           data.category,
+
 
         location:
           data.location,
 
+
         type:
           data.type,
 
+
         deadline:
           data.deadline,
+
 
         description:
           data.description,
@@ -190,26 +171,29 @@ export default function OpportunityForm() {
 
         requirements:
           data.requirements
-          .split(",")
-          .map(
-            item=>item.trim()
-          ),
+            .split(",")
+            .map(
+              item => item.trim()
+            ),
+
+
+        tags:
+          data.tags
+            .split(",")
+            .map(
+              tag => tag.trim()
+            ),
 
 
         applyLink:
           data.applyLink,
 
 
-        tags:
-          data.tags
-          .split(",")
-          .map(
-            tag=>tag.trim()
-          ),
+        featured: false,
 
-        featured:false,
 
       };
+
 
 
       addOpportunity(
@@ -217,508 +201,420 @@ export default function OpportunityForm() {
       );
 
 
+
       setSuccess(true);
+
       setError(false);
 
 
       reset();
 
 
-      window.scrollTo({
-        top:0,
-        behavior:"smooth",
-      });
 
+      setTimeout(() => {
 
-
-      setTimeout(()=>{
         setSuccess(false);
-      },3000);
+
+      }, 3000);
 
 
-
-    }catch{
-
-      setError(true);
-      setSuccess(false);
 
     }
+    catch {
+
+
+      setError(true);
+
+      setSuccess(false);
+
+
+    }
+
 
   }
 
 
 
-return (
 
-<form
 
-dir={
- language==="fa"
- ? "rtl"
- : "ltr"
-}
+  return (
 
-onSubmit={
- handleSubmit(onSubmit)
-}
+    <form
 
-className="
-space-y-7
-rounded-2xl
+      onSubmit={
+        handleSubmit(onSubmit)
+      }
+
+      className="
+mx-auto
+max-w-5xl
+space-y-8
+rounded-3xl
 border
-border-slate-200
-bg-white
+border-white/10
+bg-slate-950
 p-8
-shadow-lg
-dark:border-slate-700
-dark:bg-slate-800
+shadow-2xl
 "
 
->
+    >
 
 
-<h2 className="
+
+      <div>
+
+        <h1
+          className="
 text-3xl
 font-bold
-text-slate-900
-dark:text-white
-">
+text-white
+"
+        >
 
-{t.heading}
+          {text.heading}
 
-</h2>
+        </h1>
+
+
+        <p
+          className="
+mt-3
+text-slate-400
+"
+        >
+          Create and share new opportunities with KaarYab community.
+        </p>
+
+
+      </div>
 
 
 
-{success && (
 
-<div className="
+      {
+        success && (
+
+          <div
+            className="
 rounded-xl
-bg-green-100
+border
+border-green-500/30
+bg-green-500/10
 p-4
-text-green-700
-dark:bg-green-900/30
-dark:text-green-300
-">
+text-green-400
+"
+          >
+            {text.success}
+          </div>
 
-{t.success}
-
-</div>
-
-)}
+        )
+      }
 
 
 
-{error && (
 
-<div className="
+      {
+        error && (
+
+          <div
+            className="
 rounded-xl
-bg-red-100
+border
+border-red-500/30
+bg-red-500/10
 p-4
-text-red-700
-dark:bg-red-900/30
-dark:text-red-300
-">
-
-{t.error}
-
-</div>
-
-)}
-
-
-
-{/* Title */}
-<div>
-  <label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-    {t.title}
-  </label>
-
-  <input
-    id="title"
-    autoFocus
-    placeholder={t.placeholders.title}
-    {...register("title")}
-    className="
-    w-full rounded-lg border
-    border-slate-300
-    bg-white p-3
-    text-slate-900
-    outline-none
-    focus:border-blue-500
-    dark:border-slate-600
-    dark:bg-slate-900
-    dark:text-white
-    "
-  />
-
-  {errors.title && (
-    <p className="mt-1 text-sm text-red-500">
-      {errors.title.message}
-    </p>
-  )}
-</div>
-
-
-{/* Organization */}
-<div>
-  <label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-    {t.organization}
-  </label>
-
-  <input
-    placeholder={t.placeholders.organization}
-    {...register("organization")}
-    className="
-    w-full rounded-lg border
-    border-slate-300
-    bg-white p-3
-    text-slate-900
-    outline-none
-    focus:border-blue-500
-    dark:border-slate-600
-    dark:bg-slate-900
-    dark:text-white
-    "
-  />
-
-  {errors.organization && (
-    <p className="mt-1 text-sm text-red-500">
-      {errors.organization.message}
-    </p>
-  )}
-</div>
-
-
-{/* Category */}
-<div>
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.category}
-</label>
-
-<select
-{...register("category")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+text-red-400
 "
->
+          >
+            {text.error}
+          </div>
 
-<option value="">
-{t.selectCategory}
-</option>
+        )
 
-<option value="Job">
-{t.categories.Job}
-</option>
-
-<option value="Internship">
-{t.categories.Internship}
-</option>
-
-<option value="Scholarship">
-{t.categories.Scholarship}
-</option>
-
-<option value="Remote Work">
-{t.categories["Remote Work"]}
-</option>
-
-<option value="Training">
-{t.categories.Training}
-</option>
-
-<option value="Volunteer">
-{t.categories.Volunteer}
-</option>
-
-<option value="Online Course">
-{t.categories["Online Course"]}
-</option>
-
-</select>
+      }
 
 
-{errors.category && (
-<p className="mt-1 text-sm text-red-500">
-{errors.category.message}
-</p>
-)}
-
-</div>
 
 
-{/* Location */}
-<div>
-
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.location}
-</label>
-
-<input
-placeholder={t.placeholders.location}
-{...register("location")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-outline-none
-focus:border-blue-500
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+      <div
+        className="
+grid
+gap-6
+md:grid-cols-2
 "
-/>
-
-{errors.location && (
-<p className="mt-1 text-sm text-red-500">
-{errors.location.message}
-</p>
-)}
-
-</div>
+      >
 
 
-{/* Type */}
-<div>
+        {/* Title */}
 
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.type}
-</label>
+        <input
 
+          placeholder={text.placeholders.title}
 
-<select
-{...register("type")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+          {...register("title")}
+
+          className="
+input-style
 "
->
 
-<option value="">
-{t.selectType}
-</option>
-
-<option value="Remote">
-{t.types.Remote}
-</option>
-
-<option value="On-site">
-{t.types["On-site"]}
-</option>
-
-<option value="Hybrid">
-{t.types.Hybrid}
-</option>
-
-</select>
+        />
 
 
-{errors.type && (
-<p className="mt-1 text-sm text-red-500">
-{errors.type.message}
-</p>
-)}
+        {/* Organization */}
 
-</div>
+        <input
 
+          placeholder={text.placeholders.organization}
 
-{/* Deadline */}
-<div>
+          {...register("organization")}
 
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.deadline}
-</label>
-
-
-<input
-type="date"
-{...register("deadline")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+          className="
+input-style
 "
-/>
+
+        />
 
 
-{errors.deadline && (
-<p className="mt-1 text-sm text-red-500">
-{errors.deadline.message}
-</p>
-)}
-
-</div>
 
 
-{/* Description */}
-<div>
+        {/* Category */}
 
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.description}
-</label>
+        <select
 
+          {...register("category")}
 
-<textarea
-rows={5}
-placeholder={t.placeholders.description}
-{...register("description")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+          className="
+input-style
 "
-/>
+
+        >
+
+          <option value="">
+            {text.selectCategory}
+          </option>
 
 
-{errors.description && (
-<p className="mt-1 text-sm text-red-500">
-{errors.description.message}
-</p>
-)}
+          {
+            text.categories.map(item => (
 
-</div>
+              <option
+                key={item}
+                value={item}
+              >
+                {item}
+              </option>
 
-
-{/* Requirements */}
-<div>
-
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.requirements}
-</label>
+            ))
+          }
 
 
-<textarea
-rows={4}
-placeholder={t.placeholders.requirements}
-{...register("requirements")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+        </select>
+
+
+
+
+
+        {/* Location */}
+
+        <input
+
+          placeholder={text.placeholders.location}
+
+          {...register("location")}
+
+          className="
+input-style
 "
-/>
+
+        />
 
 
-{errors.requirements && (
-<p className="mt-1 text-sm text-red-500">
-{errors.requirements.message}
-</p>
-)}
-
-</div>
 
 
-{/* Tags */}
-<div>
+        {/* Type */}
 
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.tags}
-</label>
+        <select
 
+          {...register("type")}
 
-<input
-placeholder={t.placeholders.tags}
-{...register("tags")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+          className="
+input-style
 "
-/>
+
+        >
+
+          <option value="">
+            {text.selectType}
+          </option>
 
 
-{errors.tags && (
-<p className="mt-1 text-sm text-red-500">
-{errors.tags.message}
-</p>
-)}
+          {
+            text.types.map(item => (
 
-</div>
+              <option
+                key={item}
+                value={item}
+              >
+                {item}
+              </option>
 
-
-{/* Apply Link */}
-<div>
-
-<label className="mb-2 block font-semibold text-slate-900 dark:text-white">
-{t.applyLink}
-</label>
+            ))
+          }
 
 
-<input
-type="url"
-placeholder={t.placeholders.applyLink}
-{...register("applyLink")}
-className="
-w-full rounded-lg border
-border-slate-300
-bg-white p-3
-text-slate-900
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+        </select>
+
+
+
+
+
+        {/* Deadline */}
+
+        <input
+
+          type="date"
+
+          {...register("deadline")}
+
+          className="
+input-style
 "
-/>
+
+        />
 
 
-{errors.applyLink && (
-<p className="mt-1 text-sm text-red-500">
-{errors.applyLink.message}
-</p>
-)}
 
-</div>
+      </div>
 
 
-{/* Submit Button */}
-<button
-type="submit"
-disabled={isSubmitting}
-className="
-w-full rounded-xl
-bg-blue-600 py-3
-text-lg font-semibold
+
+
+
+      {/* Description */}
+
+      <textarea
+
+        rows={5}
+
+        placeholder={
+          text.placeholders.description
+        }
+
+        {...register("description")}
+
+        className="
+input-style
+resize-none
+"
+
+      />
+
+
+
+
+
+      {/* Requirements */}
+
+      <textarea
+
+        rows={4}
+
+        placeholder={
+          text.placeholders.requirements
+        }
+
+        {...register("requirements")}
+
+        className="
+input-style
+resize-none
+"
+
+      />
+
+
+
+
+
+      {/* Tags */}
+
+      <input
+
+        placeholder={
+          text.placeholders.tags
+        }
+
+        {...register("tags")}
+
+        className="
+input-style
+"
+
+      />
+
+
+
+
+
+      {/* Apply Link */}
+
+      <input
+
+        type="url"
+
+        placeholder={
+          text.placeholders.applyLink
+        }
+
+        {...register("applyLink")}
+
+        className="
+input-style
+"
+
+      />
+
+
+
+
+
+      <button
+
+        disabled={isSubmitting}
+
+        type="submit"
+
+        className="
+w-full
+rounded-xl
+bg-[var(--primary-color)]
+py-4
+font-semibold
 text-white
 transition
-hover:bg-blue-700
-disabled:opacity-60
+hover:scale-[1.02]
+hover:shadow-xl
+disabled:opacity-50
 "
->
 
-{
-isSubmitting
-? t.loading
-: t.submit
-}
+      >
 
-</button>
-</form>
+        {
+          isSubmitting
+            ?
+            text.loading
+            :
+            text.submit
+        }
 
-);
+      </button>
+
+
+
+
+    </form>
+
+  );
+
 
 }

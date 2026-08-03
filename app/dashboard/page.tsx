@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
+
 import {
   Briefcase,
-  Heart,
   Building2,
   GraduationCap,
   Globe,
@@ -16,477 +17,850 @@ import { getStoredOpportunities } from "@/lib/storage";
 import { opportunities as demoData } from "@/data/opportunities";
 
 import DashboardChart from "@/components/dashboard/DashboardChart";
-import { useLanguage } from "@/context/LanguageContext";
 
 import { Opportunity } from "@/types/opportunity";
 
 
-const text = {
-
-  en:{
-    title:"Dashboard",
-
-    total:"Total Opportunities",
-    jobs:"Jobs",
-    scholarships:"Scholarships",
-    internships:"Internships",
-    remote:"Remote Work",
-    training:"Training",
-    expiring:"Expiring Soon",
-
-    recent:"Recent Opportunities",
-
-    loading:"Loading dashboard...",
-    empty:"No opportunities available",
-  },
+export default function DashboardPage() {
 
 
-  fa:{
-    title:"داشبورد",
+  const [loading, setLoading] = useState(true);
 
-    total:"مجموع فرصت‌ها",
-    jobs:"وظایف",
-    scholarships:"بورسیه‌ها",
-    internships:"کارآموزی‌ها",
-    remote:"دورکاری",
-    training:"آموزش",
-    expiring:"نزدیک به پایان",
+  const [items, setItems] =
+    useState<Opportunity[]>([]);
 
-    recent:"فرصت‌های اخیر",
 
-    loading:"در حال بارگذاری...",
-    empty:"هیچ فرصتی موجود نیست",
+
+  useEffect(() => {
+
+
+    const stored =
+      getStoredOpportunities();
+
+
+    const all = [
+      ...demoData,
+      ...stored,
+    ];
+
+
+    setItems(all);
+
+    setLoading(false);
+
+
+  }, []);
+
+
+
+
+  const count = (category: string) => {
+
+
+    return items.filter(
+      item =>
+        item.category === category
+    ).length;
+
+
+  };
+
+
+
+
+  const expiring =
+    items.filter(item => {
+
+
+      const deadline =
+        new Date(item.deadline);
+
+
+      const today =
+        new Date();
+
+
+      const diff =
+        (deadline.getTime() -
+          today.getTime())
+        /
+        (1000 * 60 * 60 * 24);
+
+
+
+      return diff <= 30 && diff >= 0;
+
+
+    }).length;
+
+
+
+
+
+  if (loading) {
+
+    return (
+
+      <div className="
+        flex
+        min-h-screen
+        items-center
+        justify-center
+      ">
+
+        <p className="
+          text-xl
+          font-semibold
+          text-slate-600
+        ">
+          Loading Dashboard...
+        </p>
+
+      </div>
+
+    );
+
   }
 
-};
 
 
 
-export default function DashboardPage(){
 
+  const chartData = [
 
-const {language}=useLanguage();
+    {
+      name: "Jobs",
+      value: count("Job"),
+      color: "#2563eb"
+    },
 
-const t=text[language];
+    {
+      name: "Scholarships",
+      value: count("Scholarship"),
+      color: "#9333ea"
+    },
 
 
-const [loading,setLoading]=useState(true);
+    {
+      name: "Internships",
+      value: count("Internship"),
+      color: "#16a34a"
+    },
 
 
-const [items,setItems]=
-useState<Opportunity[]>([]);
+    {
+      name: "Remote",
+      value: count("Remote Work"),
+      color: "#f97316"
+    },
 
 
+    {
+      name: "Training",
+      value: count("Training"),
+      color: "#06b6d4"
+    },
 
-useEffect(()=>{
 
+  ];
 
-const stored=getStoredOpportunities();
 
 
-const all=[
-...demoData,
-...stored
-];
 
 
-setItems(all);
+  return (
 
-setLoading(false);
+    <ProtectedRoute>
 
 
-},[]);
-
-
-
-
-const count=(category:string)=>{
-
-return items.filter(
-(item)=>
-item.category===category
-).length;
-
-};
-
-
-
-
-const expiring =
-items.filter(item=>{
-
-const deadline =
-new Date(item.deadline);
-
-
-const today =
-new Date();
-
-
-const difference =
-deadline.getTime()
--
-today.getTime();
-
-
-const days =
-difference /
-(1000*60*60*24);
-
-
-return days <=30 && days>=0;
-
-
-}).length;
-
-
-
-
-const formatNumber=(num:number)=>
-
-language==="fa"
-
-?
-
-new Intl.NumberFormat(
-"fa-IR"
-).format(num)
-
-:
-
-num.toString();
-
-
-
-
-
-if(loading){
-
-return (
-
-<main className="
-flex
-min-h-[60vh]
-items-center
-justify-center
-">
-
-<p className="
-text-xl
-font-semibold
-dark:text-white
-">
-
-{t.loading}
-
-</p>
-
-</main>
-
-);
-
-}
-
-
-
-
-return (
-<ProtectedRoute>
-<main
-
-dir={
-language==="fa"
-?
-"rtl"
-:
-"ltr"
-}
-
-className="
-mx-auto
-max-w-7xl
+      <main
+        className="
+min-h-screen
+bg-gradient-to-br
+from-white
+via-blue-50
+to-slate-100
 px-6
 py-12
 "
-
->
-
+      >
 
 
-<h1
-className="
-mb-10
-text-4xl
-font-bold
-text-slate-900
-dark:text-white
+        <div
+          className="
+mx-auto
+max-w-7xl
 "
->
-
-{t.title}
-
-</h1>
+        >
 
 
 
+          {/* Header */}
+
+          <div className="mb-10">
+
+            <h1
+              className="
+text-4xl
+font-extrabold
+text-slate-900
+"
+            >
+              Dashboard
+            </h1>
 
 
-<div className="
+            <p
+              className="
+mt-3
+text-slate-500
+"
+            >
+              Manage opportunities and track platform activity.
+            </p>
+
+
+          </div>
+
+
+
+
+
+          {/* Cards */}
+
+
+          <div
+            className="
 grid
 gap-6
-md:grid-cols-2
-xl:grid-cols-4
-">
+sm:grid-cols-2
+lg:grid-cols-3
+xl:grid-cols-6
+"
+          >
+
+
+            <Card
+              icon={<Briefcase />}
+              value={items.length}
+              label="Total"
+              color="blue"
+            />
+
+
+            <Card
+              icon={<Building2 />}
+              value={count("Job")}
+              label="Jobs"
+              color="green"
+            />
 
 
 
-<Card
-icon={<Briefcase/>}
-value={items.length}
-label={t.total}
-/>
-
-
-<Card
-icon={<Building2/>}
-value={count("Job")}
-label={t.jobs}
-/>
-
-
-<Card
-icon={<GraduationCap/>}
-value={count("Scholarship")}
-label={t.scholarships}
-/>
-
-
-<Card
-icon={<Heart/>}
-value={count("Internship")}
-label={t.internships}
-/>
-
-
-<Card
-icon={<Globe/>}
-value={count("Remote Work")}
-label={t.remote}
-/>
-
-
-<Card
-icon={<BookOpen/>}
-value={count("Training")}
-label={t.training}
-/>
-
-
-<Card
-icon={<Clock/>}
-value={expiring}
-label={t.expiring}
-/>
-
-
-</div>
+            <Card
+              icon={<GraduationCap />}
+              value={count("Scholarship")}
+              label="Scholarships"
+              color="purple"
+            />
 
 
 
+            <Card
+              icon={<Globe />}
+              value={count("Remote Work")}
+              label="Remote"
+              color="orange"
+            />
 
 
 
-<div className="
-mt-12
-rounded-2xl
-bg-white
-p-8
-shadow
-dark:bg-slate-800
-">
+            <Card
+              icon={<BookOpen />}
+              value={count("Training")}
+              label="Training"
+              color="cyan"
+            />
 
-<DashboardChart/>
 
-</div>
+
+            <Card
+              icon={<Clock />}
+              value={expiring}
+              label="Expiring"
+              color="red"
+            />
+
+
+
+          </div>
 
 
 
 
 
+          {/* Chart + Recent */}
 
 
-<div className="
-mt-12
-rounded-2xl
-bg-white
-p-8
-shadow
-dark:bg-slate-800
-">
-
-
-<h2 className="
-mb-6
-text-2xl
-font-bold
-dark:text-white
-">
-
-{t.recent}
-
-</h2>
+          <div
+            className="
+mt-10
+grid
+gap-8
+lg:grid-cols-3
+"
+          >
 
 
 
-{
-items.length===0
-
-?
-
-<p className="dark:text-white">
-{t.empty}
-</p>
+            {/* Chart */}
 
 
-:
-
-<div className="space-y-4">
-
-
-{
-items
-.slice(-5)
-.reverse()
-.map(item=>(
-
-
-<div
-
-key={item.id}
-
-className="
-rounded-xl
+            <div
+              className="
+rounded-3xl
 border
-p-4
-dark:border-slate-700
+border-slate-200
+bg-white
+p-8
+shadow-xl
+"
+            >
+
+
+              <div
+                className="
+mb-8
+flex
+items-center
+justify-between
+"
+              >
+
+
+                <div>
+
+
+                  <h2
+                    className="
+text-xl
+font-extrabold
+text-slate-900
+"
+                  >
+                    Opportunity Overview
+                  </h2>
+
+
+                  <p
+                    className="
+mt-2
+text-sm
+text-slate-500
+"
+                  >
+                    Distribution of opportunities by category
+                  </p>
+
+
+                </div>
+
+
+
+                <div
+                  className="
+rounded-2xl
+bg-blue-50
+px-4
+py-2
+text-sm
+font-bold
+text-blue-600
+"
+                >
+                  {items.length} Total
+                </div>
+
+
+              </div>
+
+
+
+
+              <div
+                className="
+flex
+flex-col
+items-center
+gap-8
+"
+              >
+
+
+                <DashboardChart
+                  data={chartData}
+                />
+
+
+
+
+
+                <div
+                  className="
+grid
+w-full
+grid-cols-2
+gap-3
+"
+                >
+
+
+                  {
+                    chartData.map(item => (
+
+
+                      <div
+
+                        key={item.name}
+
+                        className="
+flex
+items-center
+gap-3
+rounded-xl
+bg-slate-50
+p-3
+transition
+hover:bg-slate-100
 "
 
->
-
-<h3 className="
-font-bold
-dark:text-white
-">
-
-{
-language==="fa" &&
-item.titleFa
-
-?
-item.titleFa
-
-:
-
-item.title
-
-}
-
-</h3>
+                      >
 
 
-<p className="
+                        <span
+
+                          className="
+h-3
+w-3
+rounded-full
+"
+
+                          style={{
+                            backgroundColor: item.color
+                          }}
+
+                        ></span>
+
+
+
+                        <div>
+
+                          <p
+                            className="
+text-sm
+font-semibold
+text-slate-700
+"
+                          >
+                            {item.name}
+                          </p>
+
+
+                          <p
+                            className="
+text-xs
 text-slate-500
-dark:text-slate-300
-">
-
-{item.organization}
-
-</p>
+"
+                          >
+                            {item.value} Opportunities
+                          </p>
 
 
-</div>
+                        </div>
 
 
-))
+                      </div>
+
+
+                    ))
+                  }
+
+
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+            {/* Recent */}
+            <section
+              className="
+lg:col-span-2
+rounded-3xl
+border
+border-slate-200
+bg-white
+p-8
+shadow-xl
+"
+            >
+
+
+              <div
+                className="
+mb-6
+flex
+items-center
+justify-between
+"
+              >
+
+
+                <h2
+                  className="
+text-2xl
+font-bold
+text-slate-900
+"
+                >
+                  Recent Opportunities
+                </h2>
+
+
+                <span
+                  className="
+rounded-full
+bg-slate-100
+px-4
+py-1
+text-sm
+font-bold
+text-slate-600
+"
+                >
+                  {items.length}
+                </span>
+
+
+              </div>
+
+
+
+
+              <div className="space-y-4">
+
+
+                {
+                  items
+                    .slice(-5)
+                    .reverse()
+                    .map(item => {
+
+
+                      const colors: any = {
+
+                        "Job":
+                          "bg-blue-100 text-blue-600 border-blue-200",
+
+                        "Scholarship":
+                          "bg-purple-100 text-purple-600 border-purple-200",
+
+                        "Internship":
+                          "bg-green-100 text-green-600 border-green-200",
+
+                        "Remote Work":
+                          "bg-orange-100 text-orange-600 border-orange-200",
+
+                        "Training":
+                          "bg-cyan-100 text-cyan-600 border-cyan-200",
+
+                        "Volunteer":
+                          "bg-pink-100 text-pink-600 border-pink-200",
+
+                        "Online Course":
+                          "bg-yellow-100 text-yellow-600 border-yellow-200",
+
+                      };
+
+
+
+                      const iconColor =
+                        colors[item.category] ||
+                        "bg-blue-100 text-blue-600 border-blue-200";
+
+
+
+                      return (
+
+                        <div
+
+                          key={item.id}
+
+                          className="
+group
+flex
+items-center
+justify-between
+rounded-2xl
+border
+border-slate-100
+bg-gradient-to-r
+from-white
+to-slate-50
+p-5
+transition-all
+duration-300
+hover:-translate-y-1
+hover:shadow-lg
+"
+
+                        >
+
+
+                          <div>
+
+
+                            <h3
+                              className="
+font-bold
+text-slate-900
+"
+                            >
+                              {item.title}
+                            </h3>
+
+
+
+                            <p
+                              className="
+mt-1
+text-sm
+text-slate-500
+"
+                            >
+                              {item.organization}
+                            </p>
+
+
+
+                            <span
+
+                              className={`
+mt-3
+inline-flex
+rounded-full
+border
+px-3
+py-1
+text-xs
+font-semibold
+${iconColor}
+`}
+
+                            >
+                              {item.category}
+                            </span>
+
+
+                          </div>
+
+
+
+
+
+                          <div
+
+                            className={`
+flex
+h-12
+w-12
+items-center
+justify-center
+rounded-2xl
+border
+transition
+group-hover:scale-110
+${iconColor}
+`}
+
+                          >
+
+
+                            <Briefcase
+                              className="h-5 w-5"
+                            />
+
+
+                          </div>
+
+
+
+                        </div>
+
+
+                      );
+
+
+                    })
+                }
+
+
+
+              </div>
+
+
+            </section>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+      </main>
+
+
+    </ProtectedRoute>
+
+  );
 
 }
 
-
-
-</div>
-
-}
-
-
-</div>
-
-
-
-
-
-
-</main>
-</ProtectedRoute>
-
-);
-
-
-}
 
 
 
 
 function Card({
 
-icon,
-value,
-label,
+  icon,
+  value,
+  label,
+  color,
 
-}:{
+}: {
 
-icon:React.ReactNode;
-value:number;
-label:string;
+  icon: React.ReactNode;
 
-}){
+  value: number;
+
+  label: string;
+
+  color:
+  "blue" |
+  "green" |
+  "purple" |
+  "orange" |
+  "cyan" |
+  "red";
+
+}) {
 
 
-return (
+  const colors = {
 
-<div className="
-rounded-2xl
-bg-blue-600
+
+    blue:
+      "bg-blue-100 text-blue-600",
+
+    green:
+      "bg-green-100 text-green-600",
+
+    purple:
+      "bg-purple-100 text-purple-600",
+
+    orange:
+      "bg-orange-100 text-orange-600",
+
+    cyan:
+      "bg-cyan-100 text-cyan-600",
+
+    red:
+      "bg-red-100 text-red-600",
+
+  };
+
+
+
+
+  return (
+
+    <div
+
+      className="
+group
+rounded-3xl
+border
+border-slate-200
+bg-white
 p-6
-text-white
-">
+shadow-sm
+transition
+duration-300
+hover:-translate-y-2
+hover:shadow-xl
+"
+
+    >
 
 
-<div>
-{icon}
-</div>
+      <div
+
+        className={`
+mb-5
+flex
+h-14
+w-14
+items-center
+justify-center
+rounded-2xl
+${colors[color]}
+transition
+group-hover:scale-110
+`}
+      >
 
 
-<h2 className="
-mt-4
-text-4xl
-font-bold
-">
-
-{
-new Intl.NumberFormat()
-.format(value)
-}
-
-</h2>
+        {icon}
 
 
-<p>
-{label}
-</p>
+      </div>
 
 
-</div>
 
-);
+      <h3
+        className="
+text-3xl
+font-extrabold
+text-slate-900
+"
+      >
+        {value}
+      </h3>
+
+
+
+      <p
+        className="
+mt-2
+text-sm
+font-medium
+text-slate-500
+"
+      >
+        {label}
+      </p>
+
+
+    </div>
+
+
+  );
+
 
 }

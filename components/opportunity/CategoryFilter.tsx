@@ -1,30 +1,15 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-
-const categories = {
-  en: [
-    "All",
-    "Job",
-    "Internship",
-    "Scholarship",
-    "Remote Work",
-    "Training",
-    "Volunteer",
-    "Online Course",
-  ],
-
-  fa: [
-    "همه",
-    "وظیفه",
-    "کارآموزی",
-    "بورسیه",
-    "دورکاری",
-    "آموزش",
-    "داوطلبی",
-    "دوره آنلاین",
-  ],
-};
+const categories = [
+  "All",
+  "Job",
+  "Internship",
+  "Scholarship",
+  "Remote Work",
+  "Training",
+  "Volunteer",
+  "Online Course",
+];
 
 type Props = {
   selected: string;
@@ -35,48 +20,139 @@ export default function CategoryFilter({
   selected,
   setSelected,
 }: Props) {
-  const { language } = useLanguage();
-
-  const values = categories.en;
-  const labels = categories[language];
 
   return (
     <section
-      dir={language === "fa" ? "rtl" : "ltr"}
-      className="mb-8"
+      className="
+      mb-10
+      rounded-3xl
+      border
+      border-slate-200
+      bg-white
+      p-6
+      shadow-lg
+      "
     >
-      <h2 className="sr-only">
-        {language === "fa"
-          ? "فیلتر دسته‌بندی"
-          : "Category Filter"}
-      </h2>
 
       <div
-        className={`flex flex-wrap gap-3 ${
-          language === "fa"
-            ? "justify-end"
-            : "justify-start"
-        }`}
+        className="
+        mb-6
+        flex
+        items-center
+        justify-between
+        "
       >
-        {values.map((value, index) => {
-          const active = selected === value;
 
-          return (
-            <button
-              key={value}
-              type="button"
-              onClick={() => setSelected(value)}
-              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${
-                active
-                  ? "border-blue-600 bg-blue-600 text-white"
-                  : "border-slate-200 bg-white text-slate-700 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
-              }`}
-            >
-              {labels[index]}
-            </button>
-          );
-        })}
+        <h2
+          className="
+          text-2xl
+          font-extrabold
+          text-slate-900
+          "
+        >
+          Category Filter
+        </h2>
+
+
+        <span
+          className="
+          rounded-full
+          bg-blue-50
+          px-4
+          py-1.5
+          text-sm
+          font-semibold
+          text-blue-600
+          "
+        >
+          {categories.length} Categories
+        </span>
+
+
       </div>
+
+
+
+
+      <div
+        className="
+        flex
+        flex-wrap
+        gap-3
+        "
+      >
+
+        {
+          categories.map((category) => {
+
+            const active =
+              selected === category;
+
+
+            return (
+
+              <button
+
+                key={category}
+
+                type="button"
+
+                onClick={() =>
+                  setSelected(category)
+                }
+
+                className={`
+                rounded-full
+                border
+                px-5
+                py-2.5
+                text-sm
+                font-semibold
+                transition-all
+                duration-300
+
+                ${active
+
+                    ?
+
+                    `
+                  border-blue-600
+                  bg-blue-600
+                  text-white
+                  shadow-lg
+                  shadow-blue-200
+                  scale-105
+                  `
+
+                    :
+
+                    `
+                  border-slate-200
+                  bg-slate-50
+                  text-slate-600
+                  hover:border-blue-300
+                  hover:bg-blue-50
+                  hover:text-blue-600
+                  `
+                  }
+
+                `}
+
+              >
+
+                {category}
+
+              </button>
+
+            )
+
+          })
+        }
+
+
+      </div>
+
+
     </section>
   );
 }

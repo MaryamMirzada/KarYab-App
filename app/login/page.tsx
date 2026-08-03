@@ -5,311 +5,315 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/context/AuthContext";
-import { useLanguage } from "@/context/LanguageContext";
 
 
-const text = {
-
-  en:{
-    title:"Login",
-    email:"Email",
-    password:"Password",
-    button:"Login",
-    signup:"Don't have an account?",
-    signupBtn:"Sign Up",
-    error:"Invalid email or password",
-  },
+export default function LoginPage() {
 
 
-  fa:{
-    title:"ورود",
-    email:"ایمیل",
-    password:"رمز عبور",
-    button:"ورود",
-    signup:"حساب ندارید؟",
-    signupBtn:"ثبت نام",
-    error:"ایمیل یا رمز عبور اشتباه است",
+  const router = useRouter();
+
+  const { login } = useAuth();
+
+
+
+  const [email, setEmail] = useState("");
+
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+
+
+
+  function handleSubmit(
+    e: React.FormEvent
+  ) {
+
+    e.preventDefault();
+
+    setError("");
+
+
+    const success =
+      login(
+        email.trim(),
+        password.trim()
+      );
+
+
+
+    if (success) {
+
+      router.push("/dashboard");
+
+    } else {
+
+      setError(
+        "Invalid email or password"
+      );
+
+    }
+
   }
 
-};
 
 
+  return (
 
-export default function LoginPage(){
+    <main
 
-const router = useRouter();
-
-
-const {login}=useAuth();
-
-const {language}=useLanguage();
-
-const t=text[language];
-
-
-
-const [email,setEmail]=useState("");
-
-const [password,setPassword]=useState("");
-
-const [error,setError]=useState("");
-
-
-
-
-
-function handleSubmit(
-e:React.FormEvent
-){
-
-e.preventDefault();
-
-
-setError("");
-
-
-
-const success = login(
-email.trim(),
-password.trim()
-);
-
-
-
-if(success){
-
-router.push("/dashboard");
-
-}
-else{
-
-setError(t.error);
-
-}
-
-
-
-}
-
-
-
-
-return (
-
-<main
-
-dir={
-language==="fa"
-?
-"rtl"
-:
-"ltr"
-}
-
-className="
-flex
+      className="
 min-h-screen
+flex
 items-center
 justify-center
+bg-gradient-to-br
+from-white
+via-blue-50
+to-slate-100
 px-6
 "
 
->
+    >
 
 
-<form
+      <form
 
-onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
 
-className="
+
+        className="
 w-full
 max-w-md
+rounded-3xl
+border
+border-slate-200
+bg-white/90
+p-8
+shadow-[0_20px_60px_rgba(37,99,235,0.12)]
+backdrop-blur-xl
+"
+
+      >
+
+
+        <h1
+
+          className="
+mb-8
+text-center
+text-4xl
+font-extrabold
+text-slate-900
+"
+
+        >
+
+          Login
+
+        </h1>
+
+
+
+        {
+          error &&
+
+          <div
+
+            className="
+mb-5
+rounded-xl
+border
+border-red-200
+bg-red-50
+p-3
+text-center
+text-sm
+text-red-600
+"
+
+          >
+
+            {error}
+
+          </div>
+
+        }
+
+
+
+
+        <div
+
+          className="
 space-y-5
-rounded-2xl
+"
+
+        >
+
+
+          <input
+
+            type="email"
+
+            placeholder="Email"
+
+            value={email}
+
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+
+            required
+
+
+            className="
+w-full
+rounded-xl
 border
 border-slate-200
 bg-white
-p-8
-shadow-lg
-
-dark:border-slate-700
-dark:bg-slate-800
-"
-
->
-
-
-<h1
-
-className="
-text-center
-text-3xl
-font-bold
+px-4
+py-3
 text-slate-900
-dark:text-white
+outline-none
+transition
+
+placeholder:text-slate-400
+
+focus:border-blue-500
+
+focus:ring-4
+
+focus:ring-blue-100
+
 "
 
->
-
-{t.title}
-
-</h1>
+          />
 
 
 
+          <input
 
-{
-error &&
+            type="password"
 
-<p className="
-rounded-lg
-bg-red-100
-p-3
-text-center
-text-red-600
-dark:bg-red-900/30
-dark:text-red-300
-">
+            placeholder="Password"
 
-{error}
+            value={password}
 
-</p>
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
 
-}
+            required
 
 
-
-
-
-<input
-
-type="email"
-
-placeholder={t.email}
-
-value={email}
-
-onChange={(e)=>
-setEmail(e.target.value)
-}
-
-required
-
-className="
+            className="
 w-full
-rounded-lg
+rounded-xl
 border
-p-3
+border-slate-200
+bg-white
+px-4
+py-3
+text-slate-900
+outline-none
+transition
 
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
+placeholder:text-slate-400
+
+focus:border-blue-500
+
+focus:ring-4
+
+focus:ring-blue-100
+
 "
 
-/>
+          />
 
 
 
 
 
-<input
+          <button
 
-type="password"
+            type="submit"
 
-placeholder={t.password}
-
-value={password}
-
-onChange={(e)=>
-setPassword(e.target.value)
-}
-
-required
-
-className="
-w-full
-rounded-lg
-border
-p-3
-
-dark:border-slate-600
-dark:bg-slate-900
-dark:text-white
-"
-
-/>
-
-
-
-
-
-<button
-
-type="submit"
-
-className="
+            className="
 w-full
 rounded-xl
 bg-blue-600
-py-3
+py-3.5
 font-semibold
 text-white
+transition-all
+duration-300
 
 hover:bg-blue-700
-transition
+
+hover:shadow-lg
+
+hover:shadow-blue-500/30
+
 "
 
->
+          >
 
-{t.button}
-
-</button>
+            Login
 
 
+          </button>
+
+
+        </div>
 
 
 
-<p
 
-className="
+        <p
+
+          className="
+mt-7
 text-center
-text-slate-600
-dark:text-slate-300
+text-sm
+text-slate-500
 "
 
->
+        >
 
-{t.signup}
+          Don't have an account?
 
 
-<Link
+          <Link
 
-href="/signup"
+            href="/signup"
 
-className="
+            className="
 ml-2
 font-semibold
 text-blue-600
+hover:text-blue-700
 hover:underline
 "
 
->
+          >
 
-{t.signupBtn}
+            Sign Up
 
-</Link>
-
-
-</p>
+          </Link>
 
 
+        </p>
 
-</form>
 
 
-</main>
+      </form>
 
-);
+
+    </main>
+
+
+  );
 
 
 }
