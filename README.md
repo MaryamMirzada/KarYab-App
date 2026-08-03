@@ -30,16 +30,42 @@ The platform connects students, job seekers, and professionals with:
 # 📸 Screenshots
 
 
-| Page | Screenshot |
-|------|------------|
-| Home Page | ![Home](./screenshots/home.png) |
-| Opportunities Page | ![Opportunities](./screenshots/opportunities.png) |
-| Dashboard | ![Dashboard](./screenshots/dashboard.png) |
-| Contact | ![Contact](./screenshots/contact.png) |
-| About | ![About](./screenshots/about.png) |
-| Authentication | ![Authentication](./screenshots/auth.png) |
+<table>
+  <tr>
+    <td align="center">
+      <h3>Home Page</h3>
+      <img src="./screenshot/home.png" width="300"/>
+    </td>
+
+    <td align="center">
+      <h3>Opportunities Page</h3>
+      <img src="./screenshots/opportunities.png" width="300"/>
+    </td>
+
+    <td align="center">
+      <h3>Dashboard</h3>
+      <img src="./screenshots/dashboard.png" width="300"/>
+    </td>
+
+    <td align="center">
+      <h3>Contact</h3>
+      <img src="./screenshots/contact.png" width="300"/>
+    </td>
+  </tr>
 
 
+  <tr>
+    <td align="center">
+      <h3>About</h3>
+      <img src="./screenshots/about.png" width="300"/>
+    </td>
+
+    <td align="center">
+      <h3>Authentication</h3>
+      <img src="./screenshots/auth.png" width="300"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
