@@ -38,18 +38,18 @@ The platform connects students, job seekers, and professionals with:
     </td>
 
     <td align="center">
-      <h3>Opportunities Page</h3>
-      <img src="./screenshots/opportunities.png" width="300"/>
+      <h3>Oppertunity Page</h3>
+      <img src="./screenshot/oppertunity.png" width="300"/>
     </td>
 
     <td align="center">
       <h3>Dashboard</h3>
-      <img src="./screenshots/dashboard.png" width="300"/>
+      <img src="./screenshot/dashboard.png" width="300"/>
     </td>
 
     <td align="center">
       <h3>Contact</h3>
-      <img src="./screenshots/contact.png" width="300"/>
+      <img src="./screenshot/contact.png" width="300"/>
     </td>
   </tr>
 
@@ -57,12 +57,12 @@ The platform connects students, job seekers, and professionals with:
   <tr>
     <td align="center">
       <h3>About</h3>
-      <img src="./screenshots/about.png" width="300"/>
+      <img src="./screenshot/about.png" width="300"/>
     </td>
 
     <td align="center">
       <h3>Authentication</h3>
-      <img src="./screenshots/auth.png" width="300"/>
+      <img src="./screenshots/signin.png" width="300"/>
     </td>
   </tr>
 </table>
