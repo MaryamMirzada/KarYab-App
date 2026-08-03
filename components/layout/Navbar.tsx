@@ -5,731 +5,387 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-
-import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
-
-import { translations } from "@/lib/translations";
 
 
 export default function Navbar() {
 
-
-  const { language } = useLanguage();
-
-  const t = translations[language];
-
-
   const { user, logout } = useAuth();
-
 
   const pathname = usePathname();
 
-
-  const [isOpen,setIsOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
 
 
   const links = [
-
-    {name:t.home, href:"/"},
-
-    {name:t.opportunities, href:"/opportunities"},
-
-    {name:t.saved, href:"/saved"},
-
-    {name:t.dashboard, href:"/dashboard"},
-
-    {name:t.about, href:"/about"},
-
-    {name:t.contact, href:"/contact"},
-
-
+    { name: "Home", href: "/" },
+    { name: "Opportunities", href: "/opportunities" },
+    { name: "Saved", href: "/saved" },
+    { name: "Dashboard", href: "/dashboard" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
 
-
-
   const closeMenu = () => {
-
     setIsOpen(false);
-
   };
 
 
+  return (
+
+    <header
+      className="
+        sticky
+        top-0
+        z-50
+        border-b
+        border-white/10
+        bg-slate-950/90
+        backdrop-blur-xl
+        shadow-lg
+      "
+    >
+
+
+      <div
+        className="
+          mx-auto
+          flex
+          h-20
+          max-w-7xl
+          items-center
+          justify-between
+          px-6
+          lg:px-8
+        "
+      >
 
 
+        {/* Logo */}
 
-return (
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="
+            flex
+            items-center
+            text-3xl
+            font-extrabold
+            tracking-tight
+          "
+        >
 
-<header
-
-dir={
-language==="fa"
-?
-"rtl"
-:
-"ltr"
-}
-
-className="
-sticky top-0 z-50
-border-b border-slate-200
-bg-white/90
-backdrop-blur-md
-shadow-sm
-dark:border-slate-700
-dark:bg-slate-900/90
-"
-
->
-
-
-
-<div
-
-className={`
-
-mx-auto flex h-20 max-w-7xl
-
-items-center justify-between
-
-px-6 lg:px-8
-
-${
-
-language==="fa"
-
-?
-
-"flex-row-reverse"
-
-:
-
-""
-
-}
-
-`}
-
->
-
-
-
-
-{/* Logo */}
-
-
-<Link
-
-href="/"
-
-onClick={closeMenu}
-
-className="
-text-2xl
-font-extrabold
-"
-
->
-
-
-<span className="
-text-blue-600
-dark:text-blue-400
-">
-
-Kaar
-
-</span>
-
-
-<span className="
-text-slate-900
-dark:text-white
-">
-
-Yab
-
-</span>
-
-
-</Link>
-
-
-
-
-
-
-{/* Desktop Links */}
-
-
-
-<nav
-
-className="
-hidden
-items-center
-gap-8
-md:flex
-"
-
->
-
-
-{
-
-links.map((link)=>{
-
-
-const active =
-pathname===link.href;
-
-
-
-return (
-
-<Link
-
-key={link.href}
-
-href={link.href}
-
-className={`
-
-rounded-md
-px-2
-py-1
-font-medium
-transition
-
-
-${
-
-active
-
-?
-
-"text-blue-600 dark:text-blue-400"
-
-:
-
-"text-slate-700 hover:text-blue-600 dark:text-slate-200"
-
-}
-
-`}
-
->
-
-{link.name}
-
-
-</Link>
-
-
-);
-
-
-})
-
-
-}
-
-
-</nav>
-
-
-
-
-
-
-
-{/* Desktop Actions */}
-
-
-<div
-
-className="
-hidden
-items-center
-gap-4
-md:flex
-"
-
->{
-
-user ?
-
-
-(
-
-
-<>
-
-
-<Link
-
-href="/add-opportunity"
-
-className="
-rounded-xl
-bg-blue-600
-px-5
-py-2.5
-font-semibold
-text-white
-hover:bg-blue-700
-"
-
->
-
-{t.post}
-
-</Link>
-
-
-
-<button
-
-onClick={logout}
-
-className="
-rounded-xl
-border
-border-red-500
-px-5
-py-2.5
-font-semibold
-text-red-600
-hover:bg-red-50
-"
-
->
-
-Logout
-
-</button>
-
-
-</>
-
-
-)
-
-
-:
-
-
-(
-
-
-<>
-
-
-<Link
-
-href="/login"
-
-className="
-rounded-xl
-border
-border-blue-600
-px-5
-py-2.5
-font-semibold
-text-blue-600
-"
-
->
-
-Login
-
-</Link>
-
-
-
-<Link
-
-href="/signup"
-
-className="
-rounded-xl
-bg-blue-600
-px-5
-py-2.5
-font-semibold
-text-white
-hover:bg-blue-700
-"
-
->
-
-Sign Up
-
-</Link>
-
-
-</>
-
-
-)
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-{/* Mobile Button */}
-
-
-
-<button
-
-type="button"
-
-onClick={()=>setIsOpen(!isOpen)}
-
-className="
-rounded-lg
-p-2
-hover:bg-slate-100
-dark:hover:bg-slate-800
-md:hidden
-"
-
->
-
-
-{
-
-isOpen
-
-?
-
-<X className="h-6 w-6"/>
-
-:
-
-<Menu className="h-6 w-6"/>
-
-}
-
-
-</button>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* Mobile Menu */}
-
-
-
-{
-
-isOpen &&
-
-(
-
-
-<div
-
-className="
-border-t
-border-slate-200
-bg-white
-dark:border-slate-700
-dark:bg-slate-900
-md:hidden
-"
-
->
-
-
-<nav
-
-className={`
-
-flex flex-col
-px-6 py-4
-
-${
-
-language==="fa"
-
-?
-
-"text-right"
-
-:
-
-"text-left"
-
-}
-
-`}
-
->
-
-
-{
-
-
-links.map((link)=>{
-
-
-const active =
-pathname===link.href;
-
-
-
-return (
-
-<Link
-
-key={link.href}
-
-href={link.href}
-
-onClick={closeMenu}
-
-className={`
-
-rounded-lg
-px-4
-py-3
-transition
-
-
-${
-
-active
-
-?
-
-"bg-blue-50 font-semibold text-blue-600 dark:bg-slate-800"
-
-:
-
-"hover:bg-slate-100 dark:hover:bg-slate-800"
-
-}
-
-`}
-
->
-
-{link.name}
-
-
-</Link>
-
-
-);
-
-
-})
-
-
-}
-
-
-
-
-
-
-<div
-
-className="
-mt-5
-flex
-items-center
-justify-between
-"
-
->
-
-</div>
-
-
-
-
-
-
-{
-
-user ?
-
-
-(
-
-
-<>
-
-<Link
-
-href="/add-opportunity"
-
-onClick={closeMenu}
-
-className="
-mt-5
-rounded-xl
-bg-blue-600
-px-4
-py-3
-text-center
-font-semibold
-text-white
-"
-
->
-
-{t.post}
-
-</Link>
-
-
-
-<button
-
-onClick={()=>{
-
-logout();
-
-closeMenu();
-
-}}
-
-className="
-mt-3
-rounded-xl
-border
-border-red-500
-px-4
-py-3
-font-semibold
-text-red-600
-"
-
->
-
-Logout
-
-</button>
-
-
-</>
-
-
-)
-
-
-:
-
-
-(
-
-
-<>
-
-
-<Link
-
-href="/login"
-
-onClick={closeMenu}
-
-className="
-mt-5
-rounded-xl
-border
-border-blue-600
-px-4
-py-3
-text-center
-font-semibold
-text-blue-600
-"
-
->
-
-Login
-
-</Link>
-
-
-
-<Link
-
-href="/signup"
-
-onClick={closeMenu}
-
-className="
-mt-3
-rounded-xl
-bg-blue-600
-px-4
-py-3
-text-center
-font-semibold
-text-white
-"
-
->
-
-Sign Up
-
-</Link>
-
-
-</>
-
-
-)
-
-
-}
-
-
-
-
-</nav>
-
-
-</div>
-
-
-)
-
-
-}
-
-
-
-</header>
-
-
-);
-
+          <span className="text-[var(--primary-color)]">
+            Kaar
+          </span>
+
+          <span className="text-white">
+            Yab
+          </span>
+
+        </Link>
+
+
+
+        {/* Desktop Navigation */}
+
+        <nav
+          className="
+            hidden
+            items-center
+            gap-8
+            md:flex
+          "
+        >
+
+          {links.map((link) => {
+
+            const active = pathname === link.href;
+
+
+            return (
+
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`
+                  relative
+                  py-2
+                  text-sm
+                  font-medium
+                  transition-all
+                  duration-300
+
+                  ${active
+                    ?
+                    "text-[var(--primary-color)]"
+                    :
+                    "text-slate-300 hover:text-white"
+                  }
+                `}
+              >
+
+                {link.name}
+
+
+                {active && (
+
+                  <span
+                    className="
+                      absolute
+                      -bottom-1
+                      left-0
+                      h-[2px]
+                      w-full
+                      rounded-full
+                      bg-[var(--primary-color)]
+                    "
+                  />
+
+                )}
+
+              </Link>
+
+            );
+
+          })}
+
+        </nav>
+
+
+
+
+        {/* Desktop Actions */}
+
+        <div
+          className="
+            hidden
+            items-center
+            gap-4
+            md:flex
+          "
+        >
+
+          {user ? (
+
+            <>
+
+              <Link
+                href="/add-opportunity"
+                className="
+                  rounded-xl
+                  bg-[var(--primary-color)]
+                  px-5
+                  py-2.5
+                  font-semibold
+                  text-white
+                  transition
+                  hover:scale-105
+                "
+              >
+                Post Opportunity
+              </Link>
+
+
+              <button
+                onClick={logout}
+                className="
+                  rounded-xl
+                  border
+                  border-red-500/40
+                  bg-red-500/10
+                  px-5
+                  py-2.5
+                  font-semibold
+                  text-red-400
+                  transition
+                  hover:bg-red-500/20
+                "
+              >
+                Logout
+              </button>
+
+            </>
+
+          ) : (
+
+            <>
+
+              <Link
+                href="/login"
+                className="
+                  rounded-xl
+                  border
+                  border-white/20
+                  bg-white/5
+                  px-5
+                  py-2.5
+                  font-semibold
+                  text-white
+                  transition
+                  hover:border-[var(--primary-color)]
+                "
+              >
+                Login
+              </Link>
+
+
+              <Link
+                href="/signup"
+                className="
+                  rounded-xl
+                  bg-[var(--primary-color)]
+                  px-5
+                  py-2.5
+                  font-semibold
+                  text-white
+                  transition
+                  hover:scale-105
+                "
+              >
+                Sign Up
+              </Link>
+
+            </>
+
+          )}
+
+        </div>
+
+
+
+
+        {/* Mobile Button */}
+
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="
+            rounded-xl
+            border
+            border-white/10
+            bg-white/5
+            p-2.5
+            text-white
+            md:hidden
+          "
+        >
+
+          {
+            isOpen
+              ?
+              <X className="h-6 w-6" />
+              :
+              <Menu className="h-6 w-6" />
+          }
+
+        </button>
+
+
+      </div>
+
+
+
+
+
+      {/* Mobile Menu */}
+
+      {
+        isOpen && (
+
+          <div
+            className="
+              border-t
+              border-white/10
+              bg-slate-950
+              md:hidden
+            "
+          >
+
+            <div
+              className="
+                flex
+                flex-col
+                gap-3
+                px-6
+                py-6
+              "
+            >
+
+              {links.map((link) => (
+
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="
+                    rounded-xl
+                    px-4
+                    py-3
+                    text-slate-300
+                    transition
+                    hover:bg-white/5
+                    hover:text-white
+                  "
+                >
+                  {link.name}
+
+                </Link>
+
+              ))}
+
+
+              {
+                user ? (
+
+                  <button
+                    onClick={() => {
+                      logout();
+                      closeMenu();
+                    }}
+                    className="
+                      rounded-xl
+                      border
+                      border-red-500/40
+                      py-3
+                      text-red-400
+                    "
+                  >
+                    Logout
+                  </button>
+
+                ) : (
+
+                  <Link
+                    href="/login"
+                    onClick={closeMenu}
+                    className="
+                      rounded-xl
+                      bg-[var(--primary-color)]
+                      py-3
+                      text-center
+                      font-semibold
+                      text-white
+                    "
+                  >
+                    Login
+                  </Link>
+
+                )
+              }
+
+
+            </div>
+
+          </div>
+
+        )
+      }
+
+
+    </header>
+
+  );
 
 }

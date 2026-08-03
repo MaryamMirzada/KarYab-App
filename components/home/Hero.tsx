@@ -42,22 +42,27 @@ export default function Hero() {
   return (
     <section
       dir={language === "fa" ? "rtl" : "ltr"}
-      className="relative overflow-hidden bg-white"
+      className="relative flex min-h-screen items-center overflow-hidden bg-white"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:70px_70px]" />
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:70px_70px] opacity-50" />
 
-      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[140px]" />
+      {/* Glow */}
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[150px]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-20 px-6 py-24 lg:grid-cols-2">
-        {/* Left */}
-
-        <div className={language === "fa" ? "text-right" : "text-left"}>
+      <div className="container mx-auto grid min-h-screen items-center gap-8 py-16 lg:grid-cols-[45%_55%] lg:py-0">
+        {/* Text Section */}
+        <div
+          data-aos="fade-right"
+          className={language === "fa" ? "text-right" : "text-left"}
+        >
+          {/* Badge */}
           <div className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
             🚀 {t.badge}
           </div>
 
-          <h1 className="mt-8 text-5xl font-black leading-tight text-slate-900 lg:text-7xl">
+          {/* Title */}
+          <h1 className="mt-6 text-4xl font-black leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
             {t.title1}
 
             <span className="block bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 bg-clip-text text-transparent">
@@ -65,14 +70,20 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-slate-600">
+          {/* Description */}
+          <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
             {t.description}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          {/* Buttons */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="mt-8 flex flex-wrap gap-4"
+          >
             <Link
               href="/opportunities"
-              className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white transition hover:-translate-y-1 hover:bg-blue-700"
+              className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-700"
             >
               {t.explore}
 
@@ -91,71 +102,127 @@ export default function Hero() {
 
             <Link
               href="/add-opportunity"
-              className="rounded-xl border border-slate-300 bg-white px-7 py-4 font-semibold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+              className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 transition duration-300 hover:border-blue-600 hover:text-blue-600"
             >
               {t.post}
             </Link>
           </div>
         </div>
 
-        {/* Right */}
+        {/* Image Section */}
 
-        <div className="relative flex justify-center">
-          {/* Floating Cards */}
+        <div
+          data-aos="fade-left"
+          className="relative flex items-center justify-center lg:justify-end"
+        >
+          <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl">
 
-          <div className="absolute left-0 top-8 hidden rounded-2xl border bg-white p-4 shadow-xl lg:block">
-            <div className="flex items-center gap-3">
-              <Briefcase className="text-blue-600" />
+            {/* Image Glow */}
+            <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-[90px]" />
 
-              <div>
-                <p className="font-semibold">12,000+</p>
-
-                <span className="text-sm text-slate-500">Jobs</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute right-0 top-40 hidden rounded-2xl border bg-white p-4 shadow-xl lg:block">
-            <div className="flex items-center gap-3">
-              <GraduationCap className="text-green-600" />
-
-              <div>
-                <p className="font-semibold">850+</p>
-
-                <span className="text-sm text-slate-500">Scholarships</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute bottom-10 left-12 hidden rounded-2xl border bg-white p-4 shadow-xl lg:block">
-            <div className="flex items-center gap-3">
-              <Laptop className="text-purple-600" />
-
-              <div>
-                <p className="font-semibold">Remote Work</p>
-
-                <span className="text-sm text-slate-500">
-                  Worldwide
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-3xl" />
-
+            {/* Hero Image */}
             <Image
-              src="/images/hero.svg"
+              src="/home/hero_img.png"
               alt="Hero"
-              width={650}
-              height={650}
+              width={700}
+              height={700}
               priority
-              className="relative z-10 w-full max-w-xl drop-shadow-2xl"
+              className="relative z-10 h-auto w-full object-contain drop-shadow-2xl"
             />
+
+
+            {/* Jobs Card */}
+            <div
+              data-aos="fade-down"
+              data-aos-delay="300"
+              className="absolute left-0 top-8 z-20 hidden rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-xl backdrop-blur lg:block"
+            >
+              <div className="flex items-center gap-3">
+
+                <div className="rounded-xl bg-blue-100 p-3">
+                  <Briefcase
+                    size={22}
+                    className="text-blue-600"
+                  />
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-900">
+                    12,000+
+                  </p>
+
+                  <span className="text-sm text-slate-500">
+                    Jobs
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+
+            {/* Scholarship Card */}
+            <div
+              data-aos="fade-left"
+              data-aos-delay="500"
+              className="absolute right-0 top-36 z-20 hidden rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-xl backdrop-blur lg:block"
+            >
+              <div className="flex items-center gap-3">
+
+                <div className="rounded-xl bg-green-100 p-3">
+                  <GraduationCap
+                    size={22}
+                    className="text-green-600"
+                  />
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-900">
+                    850+
+                  </p>
+
+                  <span className="text-sm text-slate-500">
+                    Scholarships
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+
+            {/* Remote Card */}
+            <div
+              data-aos="fade-up"
+              data-aos-delay="700"
+              className="absolute bottom-10 left-10 z-20 hidden rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-xl backdrop-blur lg:block"
+            >
+              <div className="flex items-center gap-3">
+
+                <div className="rounded-xl bg-purple-100 p-3">
+                  <Laptop
+                    size={22}
+                    className="text-purple-600"
+                  />
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-900">
+                    Remote
+                  </p>
+
+                  <span className="text-sm text-slate-500">
+                    Worldwide
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
           </div>
         </div>
+
       </div>
     </section>
   );

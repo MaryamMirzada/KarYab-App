@@ -3,6 +3,12 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 
 const footerText = {
   en: {
@@ -63,229 +69,186 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      dir={language === "fa" ? "rtl" : "ltr"}
-      className="
-      border-t border-slate-200
-      bg-white
-      dark:border-slate-700
-      dark:bg-slate-900
-      "
-    >
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="relative overflow-hidden bg-slate-950 text-white">
 
-        <div
-          className={`
-          grid gap-10 md:grid-cols-3
-          ${
-            language === "fa"
-              ? "text-right"
-              : "text-left"
-          }
-          `}
-        >
+      {/* Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,.18),transparent_40%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-6 py-20">
+
+        <div className="grid gap-14 lg:grid-cols-12">
 
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-5">
 
-            <h2 className="
-              text-2xl font-bold
-              text-blue-600
-              dark:text-blue-400
-            ">
-              {t.title}
+            <h2 className="text-3xl font-bold text-white">
+              KaarYab
+              <span className="text-[var(--primary-color)]">
+                Afghanistan
+              </span>
             </h2>
 
-
-            <p className="
-              mt-4 max-w-md
-              leading-7
-              text-slate-600
-              dark:text-slate-300
-            ">
-              {t.description}
+            <p className="mt-6 max-w-md leading-8 text-slate-400">
+              Helping Afghan youth discover jobs, internships,
+              scholarships, remote work and learning opportunities.
             </p>
+
+            <button
+              className="
+          mt-8
+          inline-flex
+          items-center
+          gap-3
+          rounded-xl
+          bg-[var(--primary-color)]
+          px-6
+          py-3
+          font-medium
+          transition
+          hover:scale-105
+        "
+            >
+              Explore Opportunities
+
+              <ArrowRight className="h-5 w-5" />
+            </button>
 
           </div>
 
+          {/* Links */}
+          <div className="lg:col-span-3">
 
-
-          {/* Quick Links */}
-          <nav aria-label="Footer Navigation">
-
-            <h3 className="
-              mb-4 text-lg font-semibold
-              text-slate-900
-              dark:text-white
-            ">
-              {t.quickLinks}
+            <h3 className="mb-6 text-lg font-semibold">
+              Quick Links
             </h3>
 
-
-            <ul className="space-y-3">
-
+            <ul className="space-y-4">
 
               <li>
                 <Link
                   href="/"
-                  className="
-                  text-slate-600
-                  transition
-                  hover:text-blue-600
-                  dark:text-slate-300
-                  dark:hover:text-blue-400
-                  "
+                  className="text-slate-400 transition hover:text-white"
                 >
-                  {t.links.home}
+                  Home
                 </Link>
               </li>
-
-
 
               <li>
                 <Link
                   href="/opportunities"
-                  className="
-                  text-slate-600
-                  transition
-                  hover:text-blue-600
-                  dark:text-slate-300
-                  dark:hover:text-blue-400
-                  "
+                  className="text-slate-400 transition hover:text-white"
                 >
-                  {t.links.opportunities}
+                  Opportunities
                 </Link>
               </li>
-
-
 
               <li>
                 <Link
                   href="/about"
-                  className="
-                  text-slate-600
-                  transition
-                  hover:text-blue-600
-                  dark:text-slate-300
-                  dark:hover:text-blue-400
-                  "
+                  className="text-slate-400 transition hover:text-white"
                 >
-                  {t.links.about}
+                  About
                 </Link>
               </li>
-
-
 
               <li>
                 <Link
                   href="/contact"
-                  className="
-                  text-slate-600
-                  transition
-                  hover:text-blue-600
-                  dark:text-slate-300
-                  dark:hover:text-blue-400
-                  "
+                  className="text-slate-400 transition hover:text-white"
                 >
-                  {t.links.contact}
+                  Contact
                 </Link>
               </li>
-
-
-            </ul>
-
-          </nav>
-
-
-
-
-          {/* Contact */}
-          <div>
-
-            <h3 className="
-              mb-4 text-lg font-semibold
-              text-slate-900
-              dark:text-white
-            ">
-              {t.contact}
-            </h3>
-
-
-            <ul className="
-              space-y-4
-              text-slate-600
-              dark:text-slate-300
-            ">
-
-
-              <li>
-                📧 info@kaaryab.af
-              </li>
-
-
-              <li>
-                📞{" "}
-                {language === "fa"
-                  ? "+۹۳ ۷۰۰ ۰۰۰ ۰۰۰"
-                  : "+93 700 000 000"}
-              </li>
-
-
-              <li>
-                📍 {t.location}
-              </li>
-
 
             </ul>
 
           </div>
 
+          {/* Contact */}
+          <div className="lg:col-span-4">
+
+            <h3 className="mb-6 text-lg font-semibold">
+              Contact
+            </h3>
+
+            <div className="space-y-5">
+
+              <div className="flex items-center gap-4">
+
+                <div className="rounded-xl bg-white/5 p-3">
+                  <Mail className="h-5 w-5 text-[var(--primary-color)]" />
+                </div>
+
+                <span className="text-slate-400">
+                  info@kaaryab.af
+                </span>
+
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <div className="rounded-xl bg-white/5 p-3">
+                  <Phone className="h-5 w-5 text-[var(--primary-color)]" />
+                </div>
+
+                <span className="text-slate-400">
+                  +93 700 000 000
+                </span>
+
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <div className="rounded-xl bg-white/5 p-3">
+                  <MapPin className="h-5 w-5 text-[var(--primary-color)]" />
+                </div>
+
+                <span className="text-slate-400">
+                  Kabul, Afghanistan
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
-
-
-
 
         {/* Bottom */}
-        <div
-          className="
-          mt-10
-          border-t
-          border-slate-200
-          pt-6
-          dark:border-slate-700
-          "
-        >
 
-          <p
-            className="
-            text-center
-            text-sm
-            text-slate-500
-            dark:text-slate-400
-            "
-          >
-            © {year} {t.title}. {t.copyright}
-          </p>
+        <div className="mt-16 border-t border-white/10 pt-8">
 
+          <div className="flex flex-col items-center justify-between gap-5 text-sm text-slate-500 md:flex-row">
 
-          <p
-            className="
-            mt-2
-            text-center
-            text-xs
-            text-slate-400
-            dark:text-slate-500
-            "
-          >
-            {t.demo}
-          </p>
+            <p>
+              © {year} KaarYab Afghanistan. All rights reserved.
+            </p>
 
+            <div className="flex gap-8">
+
+              <Link
+                href="/privacy"
+                className="transition hover:text-white"
+              >
+                Privacy
+              </Link>
+
+              <Link
+                href="/terms"
+                className="transition hover:text-white"
+              >
+                Terms
+              </Link>
+
+            </div>
+
+          </div>
 
         </div>
 
-
       </div>
+
     </footer>
   );
 }
