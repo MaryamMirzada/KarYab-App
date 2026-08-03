@@ -1,6 +1,6 @@
 # 🚀 KaarYab Afghanistan
 
-![KaarYab Banner](./screenshots/banner.png)
+![KaarYab Banner](https://drive.google.com/file/d/1NG0uiqxelNDUl5ZaoouBR6Z_FYccZAUI/view?usp=drive_link)
 
 KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted place.
 
