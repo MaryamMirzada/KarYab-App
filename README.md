@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KaarYab Afghanistan
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+KaarYab Afghanistan is a modern opportunity discovery platform designed to help Afghan youth find career and educational opportunities in one trusted platform.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The platform helps users discover:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Job Opportunities
+- Scholarships
+- Internships
+- Remote Work
+- Training Programs
+- Volunteer Opportunities
+- Online Courses
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+KaarYab provides an easy and responsive experience for users to explore, save, and manage opportunities.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project Links
 
-To learn more about Next.js, take a look at the following resources:
+| Type | Link |
+|------|------|
+| Live Website | https://kaaryab.vercel.app |
+| Repository | https://github.com/username/kaaryab |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+### Home Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Home Page](./public/screenshots/home.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Opportunities Page
+
+![Opportunities Page](./public/screenshots/opportunities.png)
+
+### Dashboard
+
+![Dashboard](./public/screenshots/dashboard.png)
+
+### Contact Page
+
+![Contact Page](./public/screenshots/contact.png)
+
+---
+
+## Problem
+
+Finding reliable opportunities such as jobs, scholarships, internships, and training programs can be difficult because information is distributed across different platforms.
+
+Many students and young professionals need a simple platform where they can quickly discover suitable opportunities.
+
+---
+
+## Solution
+
+KaarYab provides a centralized platform where users can:
+
+- Discover different opportunities
+- Search and filter opportunities
+- Save useful opportunities
+- View detailed information
+- Manage submitted opportunities
+
+---
+
+## Target Users
+
+### Students
+
+Students who are searching for:
+
+- Scholarships
+- Training programs
+- Learning opportunities
+- Career development resources
+
+
+### Job Seekers
+
+Users looking for:
+
+- Job opportunities
+- Remote work
+- Professional growth
+
+
+### Organizations
+
+Organizations that want to:
+
+- Publish opportunities
+- Connect with talented users
+- Share programs and jobs
+
+---
+
+## Features
+
+### Authentication
+
+- User registration
+- User login
+- Protected routes
+- User session management
+
+
+### Opportunity System
+
+- Browse opportunities
+- Search opportunities
+- Filter by category
+- View details
+- Save opportunities
+
+
+### Opportunity Management
+
+- Add opportunities
+- Edit opportunities
+- Delete opportunities
+
+
+### Dashboard
+
+- Opportunity statistics
+- Category charts
+- Recent opportunities
+- Expiring opportunities
+
+
+### Responsive Design
+
+Optimized for:
+
+- Desktop
+- Tablet
+- Mobile
+
+---
+
+## Technologies Used
+
+| Technology | Usage |
+|------------|-------|
+| Next.js | Application framework and routing |
+| React | UI development |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Responsive styling |
+| Recharts | Data visualization |
+| Lucide React | Icon system |
+| React Icons | Additional icons |
+| React Theme | Theme management |
+
+---
+
+## Project Structure
