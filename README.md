@@ -36,22 +36,28 @@ The platform connects students, job seekers, and professionals with:
 
 ## Opportunities Page
 
-![Opportunities](./screenshots/opportunities.png)
+![Opportunities](./screenshot/opportunity.png)
 
 
 ## Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshot/dashboard.png)
+
+## contact
+
+![Dashboard](./screenshot/contact.png)
 
 
-## Opportunity Details
+## about
 
-![Details](./screenshots/details.png)
+![Dashboard](./screenshot/about.png)
+
 
 
 ## Authentication
 
 ![Login](./screenshots/login.png)
+![Details](./screenshot/signin.png)
 
 
 
